@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Posnetki niso bili najdeni",
   "noPreviewFound": "Predogled ni bil najden",
   "noPreviewFoundFor": "Predogled za {{cameraName}} ni na voljo",
-  "submitFrigatePlus": {
-    "title": "Želite poslati ta okvir na Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Želite poslati ta okvir na SecureVu+?",
     "submit": "Pošlji"
   },
   "stats": {
@@ -42,10 +42,10 @@
   "cameraDisabled": "Kamera je onemogočena",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Sličica je bila uspešno poslana v Frigate+"
+      "submittedSecureVuPlus": "Sličica je bila uspešno poslana v SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Pošiljanje sličice v Frigate+ ni uspelo"
+      "submitSecureVuPlusFailed": "Pošiljanje sličice v SecureVu+ ni uspelo"
     }
   }
 }

@@ -10,19 +10,19 @@ import click
 import cv2
 import numpy as np
 
-sys.path.append("/workspace/frigate")
+sys.path.append("/workspace/securevu")
 
-from frigate.config import FrigateConfig  # noqa: E402
-from frigate.motion import MotionDetector  # noqa: E402
-from frigate.object_detection.base import LocalObjectDetector  # noqa: E402
-from frigate.track.centroid_tracker import CentroidTracker  # noqa: E402
-from frigate.track.object_processing import CameraState  # noqa: E402
-from frigate.util import (  # noqa: E402
+from securevu.config import SecureVuConfig  # noqa: E402
+from securevu.motion import MotionDetector  # noqa: E402
+from securevu.object_detection.base import LocalObjectDetector  # noqa: E402
+from securevu.track.centroid_tracker import CentroidTracker  # noqa: E402
+from securevu.track.object_processing import CameraState  # noqa: E402
+from securevu.util import (  # noqa: E402
     EventsPerSecond,
     SharedMemoryFrameManager,
     draw_box_with_label,
 )
-from frigate.video import (  # noqa: E402
+from securevu.video import (  # noqa: E402
     capture_frames,
     process_frames,
     start_or_restart_ffmpeg,
@@ -61,7 +61,7 @@ def get_frame_shape(source):
 
 
 class ProcessClip:
-    def __init__(self, clip_path, frame_shape, config: FrigateConfig):
+    def __init__(self, clip_path, frame_shape, config: SecureVuConfig):
         self.clip_path = clip_path
         self.camera_name = "camera"
         self.config = config
@@ -279,8 +279,8 @@ def process(path, label, output, debug_path):
         }
         json_config["cameras"]["camera"]["ffmpeg"]["inputs"][0]["path"] = c
 
-        frigate_config = FrigateConfig(**json_config)
-        process_clip = ProcessClip(c, frame_shape, frigate_config)
+        securevu_config = SecureVuConfig(**json_config)
+        process_clip = ProcessClip(c, frame_shape, securevu_config)
         process_clip.load_frames()
         process_clip.process_frames(object_detector, objects_to_track=[label])
 

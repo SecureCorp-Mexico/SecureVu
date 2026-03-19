@@ -26,9 +26,9 @@
     "label": "Funkcje",
     "hasSnapshot": "Posiada stop klatkę",
     "hasVideoClip": "Posiada klip wideo",
-    "submittedToFrigatePlus": {
-      "label": "Przesłano do Frigate+",
-      "tips": "Musisz najpierw filtrować obiekty śledzone, które mają stop klatkę.<br /><br />Obiekty śledzone bez stop klatki nie mogą być przesłane do Frigate+."
+    "submittedToSecureVuPlus": {
+      "label": "Przesłano do SecureVu+",
+      "tips": "Musisz najpierw filtrować obiekty śledzone, które mają stop klatkę.<br /><br />Obiekty śledzone bez stop klatki nie mogą być przesłane do SecureVu+."
     }
   },
   "sort": {

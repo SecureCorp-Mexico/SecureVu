@@ -4,7 +4,7 @@ import { ReactNode, useCallback, useContext, useEffect } from "react";
 import { Toaster, toast } from "sonner";
 import { Button } from "../../components/ui/button";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import {
   useUserPersistence,
   deleteUserNamespacedKey,
@@ -104,7 +104,7 @@ function ValueSettingRow({
 }
 
 export default function UiSettingsView() {
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const { t } = useTranslation("views/settings");
   const { auth } = useContext(AuthContext);
   const username = auth?.user?.username;

@@ -169,15 +169,15 @@
     }
   },
   "documentTitle": {
-    "default": "Seadistused - Frigate",
-    "authentication": "Autentimise seadistused - Frigate",
-    "cameraReview": "Kaamerate kordusvaatuste seadistused - Frigate",
-    "general": "Profiili seadistused - Frigate",
-    "frigatePlus": "Frigate+ seadistused - Frigate",
-    "notifications": "Teavituste seadistused - Frigate",
-    "cameraManagement": "Kaamerate haldus - Frigate",
-    "masksAndZones": "Maskide ja tsoonide haldus - Frigate",
-    "object": "Silumine ja veaotsing - Frigate"
+    "default": "Seadistused - SecureVu",
+    "authentication": "Autentimise seadistused - SecureVu",
+    "cameraReview": "Kaamerate kordusvaatuste seadistused - SecureVu",
+    "general": "Profiili seadistused - SecureVu",
+    "securevuPlus": "SecureVu+ seadistused - SecureVu",
+    "notifications": "Teavituste seadistused - SecureVu",
+    "cameraManagement": "Kaamerate haldus - SecureVu",
+    "masksAndZones": "Maskide ja tsoonide haldus - SecureVu",
+    "object": "Silumine ja veaotsing - SecureVu"
   },
   "general": {
     "title": "Profiili seadistused",
@@ -239,11 +239,11 @@
       "suspend": "Peata arvuti töö"
     }
   },
-  "frigatePlus": {
-    "title": "Frigate+ seadistused",
-    "unsavedChanges": "Frigate+ seadistuste muudatused on salvestamata",
+  "securevuPlus": {
+    "title": "SecureVu+ seadistused",
+    "unsavedChanges": "SecureVu+ seadistuste muudatused on salvestamata",
     "toast": {
-      "success": "Frigate+ seadistuste muudatused on salvestatud. Muudatuste kasutuselevõtmiseks käivita Frigate uuesti."
+      "success": "SecureVu+ seadistuste muudatused on salvestatud. Muudatuste kasutuselevõtmiseks käivita SecureVu uuesti."
     },
     "snapshotConfig": {
       "title": "Hetkvõtte seadistused",
@@ -328,7 +328,7 @@
     "users": "Kasutajad",
     "roles": "Rollid",
     "notifications": "Teavitused",
-    "frigateplus": "Frigate+",
+    "securevuplus": "SecureVu+",
     "cameraReview": "Ülevaatamine"
   },
   "dialog": {

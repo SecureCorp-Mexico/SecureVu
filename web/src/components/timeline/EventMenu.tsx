@@ -11,7 +11,7 @@ import { useApiHost } from "@/api";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Event } from "@/types/event";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { useCallback, useState } from "react";
 import { useIsAdmin } from "@/hooks/use-is-admin";
 import axios from "axios";
@@ -20,7 +20,7 @@ import { Button } from "../ui/button";
 
 type EventMenuProps = {
   event: Event;
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   onOpenUpload?: (e: Event) => void;
   onOpenSimilarity?: (e: Event) => void;
   isSelected?: boolean;

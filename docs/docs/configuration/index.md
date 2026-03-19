@@ -1,15 +1,15 @@
 ---
 id: index
-title: Frigate Configuration
+title: SecureVu Configuration
 ---
 
-For Home Assistant Add-on installations, the config file should be at `/addon_configs/<addon_directory>/config.yml`, where `<addon_directory>` is specific to the variant of the Frigate Add-on you are running. See the list of directories [here](#accessing-add-on-config-dir).
+For Home Assistant Add-on installations, the config file should be at `/addon_configs/<addon_directory>/config.yml`, where `<addon_directory>` is specific to the variant of the SecureVu Add-on you are running. See the list of directories [here](#accessing-add-on-config-dir).
 
 For all other installation types, the config file should be mapped to `/config/config.yml` inside the container.
 
 It can be named `config.yml` or `config.yaml`, but if both files exist `config.yml` will be preferred and `config.yaml` will be ignored.
 
-It is recommended to start with a minimal configuration and add to it as described in [this guide](../guides/getting_started.md) and use the built in configuration editor in Frigate's UI which supports validation.
+It is recommended to start with a minimal configuration and add to it as described in [this guide](../guides/getting_started.md) and use the built in configuration editor in SecureVu's UI which supports validation.
 
 ```yaml
 mqtt:
@@ -27,7 +27,7 @@ cameras:
 
 ## Accessing the Home Assistant Add-on configuration directory {#accessing-add-on-config-dir}
 
-When running Frigate through the HA Add-on, the Frigate `/config` directory is mapped to `/addon_configs/<addon_directory>` in the host, where `<addon_directory>` is specific to the variant of the Frigate Add-on you are running.
+When running SecureVu through the HA Add-on, the SecureVu `/config` directory is mapped to `/addon_configs/<addon_directory>` in the host, where `<addon_directory>` is specific to the variant of the SecureVu Add-on you are running.
 
 | Add-on Variant             | Configuration directory                   |
 | -------------------------- | ----------------------------------------- |
@@ -42,11 +42,11 @@ If for example you are running the standard Add-on variant and use the [VS Code 
 
 ## VS Code Configuration Schema
 
-VS Code supports JSON schemas for automatically validating configuration files. You can enable this feature by adding `# yaml-language-server: $schema=http://frigate_host:5000/api/config/schema.json` to the beginning of the configuration file. Replace `frigate_host` with the IP address or hostname of your Frigate server. If you're using both VS Code and Frigate as an Add-on, you should use `ccab4aaf-frigate` instead. Make sure to expose the internal unauthenticated port `5000` when accessing the config from VS Code on another machine.
+VS Code supports JSON schemas for automatically validating configuration files. You can enable this feature by adding `# yaml-language-server: $schema=http://securevu_host:5000/api/config/schema.json` to the beginning of the configuration file. Replace `securevu_host` with the IP address or hostname of your SecureVu server. If you're using both VS Code and SecureVu as an Add-on, you should use `ccab4aaf-securevu` instead. Make sure to expose the internal unauthenticated port `5000` when accessing the config from VS Code on another machine.
 
 ## Environment Variable Substitution
 
-Frigate supports the use of environment variables starting with `FRIGATE_` **only** where specifically indicated in the [reference config](./reference.md). For example, the following values can be replaced at runtime by using environment variables:
+SecureVu supports the use of environment variables starting with `SECUREVU_` **only** where specifically indicated in the [reference config](./reference.md). For example, the following values can be replaced at runtime by using environment variables:
 
 ```yaml
 mqtt:

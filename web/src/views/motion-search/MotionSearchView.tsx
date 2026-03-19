@@ -4,7 +4,7 @@ import useSWR from "swr";
 import axios from "axios";
 import { isDesktop, isMobile } from "react-device-detect";
 import Logo from "@/components/Logo";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { TimeRange } from "@/types/timeline";
 import { RecordingsSummary } from "@/types/review";
 import { ExportMode } from "@/types/filter";
@@ -61,7 +61,7 @@ import { LuSearch } from "react-icons/lu";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 
 type MotionSearchViewProps = {
-  config: FrigateConfig;
+  config: SecureVuConfig;
   cameras: string[];
   selectedCamera: string | null;
   onCameraSelect: (camera: string) => void;

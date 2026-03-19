@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useCallback, useEffect, useMemo } from "react";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import useSWR from "swr";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
@@ -68,7 +68,7 @@ export default function ObjectMaskEditPane({
 }: ObjectMaskEditPaneProps) {
   const { t } = useTranslation(["views/settings"]);
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   const polygon = useMemo(() => {
     if (polygons && activePolygonIndex !== undefined) {
@@ -483,7 +483,7 @@ type ZoneObjectSelectorProps = {
 
 export function ZoneObjectSelector({ camera }: ZoneObjectSelectorProps) {
   const { t } = useTranslation(["views/settings"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   const cameraConfig = useMemo(() => {
     if (config && camera) {

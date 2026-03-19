@@ -1,4 +1,4 @@
-export interface FrigateStats {
+export interface SecureVuStats {
   cameras: { [camera_name: string]: CameraStats };
   cpu_usages: { [pid: string]: CpuStats };
   detectors: { [detectorKey: string]: DetectorStats };

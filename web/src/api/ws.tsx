@@ -3,17 +3,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 import {
   EmbeddingsReindexProgressType,
-  FrigateCameraState,
-  FrigateEvent,
-  FrigateReview,
+  SecureVuCameraState,
+  SecureVuEvent,
+  SecureVuReview,
   ModelState,
   ToggleableSetting,
   TrackedObjectUpdateReturnType,
   TriggerStatus,
-  FrigateAudioDetections,
+  SecureVuAudioDetections,
   Job,
 } from "@/types/ws";
-import { FrigateStats } from "@/types/stats";
+import { SecureVuStats } from "@/types/stats";
 import { createContainer } from "react-tracked";
 import useDeepMemo from "@/hooks/use-deep-memo";
 
@@ -53,7 +53,7 @@ function useValue(): useValueReturn {
       return;
     }
 
-    let cameraActivity: { [key: string]: Partial<FrigateCameraState> };
+    let cameraActivity: { [key: string]: Partial<SecureVuCameraState> };
 
     try {
       cameraActivity = JSON.parse(activityValue);
@@ -409,28 +409,28 @@ export function useRestart(): {
   return { payload: payload as string, send };
 }
 
-export function useFrigateEvents(): { payload: FrigateEvent } {
+export function useSecureVuEvents(): { payload: SecureVuEvent } {
   const {
     value: { payload },
   } = useWs("events", "");
   return { payload: JSON.parse(payload as string) };
 }
 
-export function useAudioDetections(): { payload: FrigateAudioDetections } {
+export function useAudioDetections(): { payload: SecureVuAudioDetections } {
   const {
     value: { payload },
   } = useWs("audio_detections", "");
   return { payload: JSON.parse(payload as string) };
 }
 
-export function useFrigateReviews(): FrigateReview {
+export function useSecureVuReviews(): SecureVuReview {
   const {
     value: { payload },
   } = useWs("reviews", "");
   return useDeepMemo(JSON.parse(payload as string));
 }
 
-export function useFrigateStats(): FrigateStats {
+export function useSecureVuStats(): SecureVuStats {
   const {
     value: { payload },
   } = useWs("stats", "");
@@ -441,7 +441,7 @@ export function useInitialCameraState(
   camera: string,
   revalidateOnFocus: boolean,
 ): {
-  payload: FrigateCameraState;
+  payload: SecureVuCameraState;
 } {
   const {
     value: { payload },

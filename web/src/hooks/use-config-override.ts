@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import isEqual from "lodash/isEqual";
 import get from "lodash/get";
 import set from "lodash/set";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { JsonObject, JsonValue } from "@/types/configForm";
 import { isJsonObject } from "@/lib/utils";
 
@@ -43,8 +43,8 @@ export interface OverrideStatus {
 }
 
 export interface UseConfigOverrideOptions {
-  /** Full Frigate config */
-  config: FrigateConfig | undefined;
+  /** Full SecureVu config */
+  config: SecureVuConfig | undefined;
   /** Camera name for per-camera settings */
   cameraName?: string;
   /** Config section path (e.g., "detect", "record.events") */
@@ -199,7 +199,7 @@ export function useConfigOverride({
  * Hook to get all overridden fields for a camera
  */
 export function useAllCameraOverrides(
-  config: FrigateConfig | undefined,
+  config: SecureVuConfig | undefined,
   cameraName: string | undefined,
 ) {
   return useMemo(() => {

@@ -5,7 +5,7 @@
     },
     "safe_mode": {
         "label": "abgesicherter Modus",
-        "description": "Wenn aktiviert, starte Frigate im abgesicherten Modus mit reduzierten Features für die Fehlersuche."
+        "description": "Wenn aktiviert, starte SecureVu im abgesicherten Modus mit reduzierten Features für die Fehlersuche."
     },
     "audio": {
         "label": "Audioereignisse",
@@ -39,7 +39,7 @@
     },
     "environment_vars": {
         "label": "Umgebungsvariablen",
-        "description": "Schlüssel-/Wertpaare für Umgebungsvariablen des Frigate-Prozesses in Home Assistant OS. Nicht-HAOS Benutzer müssen anstatt dessen Docker Umgebungsvariablen nutzen."
+        "description": "Schlüssel-/Wertpaare für Umgebungsvariablen des SecureVu-Prozesses in Home Assistant OS. Nicht-HAOS Benutzer müssen anstatt dessen Docker Umgebungsvariablen nutzen."
     },
     "logger": {
         "label": "Protokollierung",
@@ -58,7 +58,7 @@
         "description": "Einstellungen für die Authentifizierung und Sitzungen, einschließlich Optionen für Cookies und Limits.",
         "enabled": {
             "label": "Authentifizierung aktivieren",
-            "description": "Aktivierung native Authentifizierung für Frigate UI."
+            "description": "Aktivierung native Authentifizierung für SecureVu UI."
         },
         "reset_admin_password": {
             "label": "Zurücksetzen vom Admin Passwort",
@@ -127,7 +127,7 @@
     },
     "database": {
         "label": "Datenbank",
-        "description": "Einstellungen für die SQLite-Datenbank, die von Frigate zum Speichern von verfolgten Objekten und Aufzeichnungsmetadaten verwendet wird.",
+        "description": "Einstellungen für die SQLite-Datenbank, die von SecureVu zum Speichern von verfolgten Objekten und Aufzeichnungsmetadaten verwendet wird.",
         "path": {
             "label": "Pfad zur Datenbank"
         }

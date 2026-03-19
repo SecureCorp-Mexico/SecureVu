@@ -14,12 +14,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { SearchResult } from "@/types/search";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { useIsAdmin } from "@/hooks/use-is-admin";
 
 type Props = {
   search: SearchResult | Event;
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   setSearch?: (s: SearchResult | undefined) => void;
   setSimilarity?: () => void;
   faceNames?: string[];

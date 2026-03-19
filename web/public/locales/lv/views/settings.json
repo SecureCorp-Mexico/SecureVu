@@ -1,12 +1,12 @@
 {
   "documentTitle": {
-    "default": "Iestatījumi - Frigate",
-    "authentication": "Autentifikācijas iestatījumi - Frigate",
-    "cameraManagement": "Pārvaldīt kameras - Frigate",
-    "cameraReview": "Kameras skata iestatījumi - Frigate",
-    "enrichments": "Bagātināšanas iestatījumi - Frigate",
-    "masksAndZones": "Masku un zonu rediģētājs - Frigate",
-    "motionTuner": "Kustības noteikšana - Frigate"
+    "default": "Iestatījumi - SecureVu",
+    "authentication": "Autentifikācijas iestatījumi - SecureVu",
+    "cameraManagement": "Pārvaldīt kameras - SecureVu",
+    "cameraReview": "Kameras skata iestatījumi - SecureVu",
+    "enrichments": "Bagātināšanas iestatījumi - SecureVu",
+    "masksAndZones": "Masku un zonu rediģētājs - SecureVu",
+    "motionTuner": "Kustības noteikšana - SecureVu"
   },
   "cameraWizard": {
     "step1": {
@@ -66,7 +66,7 @@
   "menu": {
     "users": "Lietotāji",
     "roles": "Lomas",
-    "frigateplus": "Frigate+",
+    "securevuplus": "SecureVu+",
     "notifications": "Paziņojumi",
     "triggers": "Trigeri"
   },
@@ -163,7 +163,7 @@
       "content": "Saturs"
     }
   },
-  "frigatePlus": {
+  "securevuPlus": {
     "modelInfo": {
       "cameras": "Kameras"
     },

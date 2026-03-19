@@ -21,9 +21,9 @@
     "noFoundForTimePeriod": "Keine Ereignisse für diesen Zeitraum gefunden.",
     "aria": "Wähle Ereignisse aus"
   },
-  "documentTitle": "Überprüfung - Frigate",
+  "documentTitle": "Überprüfung - SecureVu",
   "recordings": {
-    "documentTitle": "Aufnahmen - Frigate"
+    "documentTitle": "Aufnahmen - SecureVu"
   },
   "calendarFilter": {
     "last24Hours": "Letzte 24 Stunden"

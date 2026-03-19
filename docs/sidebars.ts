@@ -1,18 +1,18 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 import { PropSidebarItemLink } from "@docusaurus/plugin-content-docs";
-import frigateHttpApiSidebar from "./docs/integrations/api/sidebar";
+import securevuHttpApiSidebar from "./docs/integrations/api/sidebar";
 
 const sidebars: SidebarsConfig = {
   docs: {
-    Frigate: [
-      "frigate/index",
-      "frigate/hardware",
-      "frigate/planning_setup",
-      "frigate/installation",
-      "frigate/updating",
-      "frigate/camera_setup",
-      "frigate/video_pipeline",
-      "frigate/glossary",
+    SecureVu: [
+      "securevu/index",
+      "securevu/hardware",
+      "securevu/planning_setup",
+      "securevu/installation",
+      "securevu/updating",
+      "securevu/camera_setup",
+      "securevu/video_pipeline",
+      "securevu/glossary",
     ],
     Guides: [
       "guides/getting_started",
@@ -109,18 +109,18 @@ const sidebars: SidebarsConfig = {
         label: "HTTP API",
         link: {
           type: "generated-index",
-          title: "Frigate HTTP API",
+          title: "SecureVu HTTP API",
           description: "HTTP API",
-          slug: "/integrations/api/frigate-http-api",
+          slug: "/integrations/api/securevu-http-api",
         },
-        items: frigateHttpApiSidebar,
+        items: securevuHttpApiSidebar,
       },
       "integrations/mqtt",
       "integrations/homekit",
       "configuration/metrics",
       "integrations/third_party_extensions",
     ],
-    "Frigate+": [
+    "SecureVu+": [
       "plus/index",
       "plus/annotating",
       "plus/first_model",

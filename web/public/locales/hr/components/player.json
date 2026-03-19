@@ -1,7 +1,7 @@
 {
   "noRecordingsFoundForThisTime": "Nisu pronađene snimke za ovo vrijeme",
-  "submitFrigatePlus": {
-    "title": "Pošalji ovaj kadar u Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Pošalji ovaj kadar u SecureVu+?",
     "submit": "Pošalji"
   },
   "cameraDisabled": "Kamera je onemogućena",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Kadar je uspješno poslan u Frigate+"
+      "submittedSecureVuPlus": "Kadar je uspješno poslan u SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Neuspješno slanje kadra u Frigate+"
+      "submitSecureVuPlusFailed": "Neuspješno slanje kadra u SecureVu+"
     }
   }
 }

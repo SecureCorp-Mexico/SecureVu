@@ -10,7 +10,7 @@ type useUserPersistenceReturn<S> = [
 ];
 
 // Key used to track which keys have been migrated to prevent re-reading old keys
-const MIGRATED_KEYS_STORAGE_KEY = "frigate-migrated-user-keys";
+const MIGRATED_KEYS_STORAGE_KEY = "securevu-migrated-user-keys";
 
 /**
  * Compute the user-namespaced key for a given base key and username.

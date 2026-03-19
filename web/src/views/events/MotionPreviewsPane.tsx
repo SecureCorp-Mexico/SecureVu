@@ -10,7 +10,7 @@ import {
 } from "react";
 import { isCurrentHour } from "@/utils/dateUtil";
 import { useTranslation } from "react-i18next";
-import { CameraConfig } from "@/types/frigateConfig";
+import { CameraConfig } from "@/types/securevuConfig";
 import useSWR from "swr";
 import { baseUrl } from "@/api/baseUrl";
 import { Recording } from "@/types/record";
@@ -19,7 +19,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import TimeAgo from "@/components/dynamic/TimeAgo";
 import { useFormattedTimestamp } from "@/hooks/use-date-utils";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 
 const MOTION_HEATMAP_GRID_SIZE = 16;
 const MIN_MOTION_CELL_ALPHA = 0.06;
@@ -147,7 +147,7 @@ function MotionPreviewClip({
   onSeek,
 }: MotionPreviewClipProps) {
   const { t } = useTranslation(["views/events", "common"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const dimOverlayCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const overlayContainerRef = useRef<HTMLDivElement | null>(null);

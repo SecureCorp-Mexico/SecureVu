@@ -15,7 +15,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useOverlayState } from "@/hooks/use-overlay-state";
 import { useResizeObserver } from "@/hooks/resize-observer";
 import { ExportMode } from "@/types/filter";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { Preview } from "@/types/preview";
 import {
   MotionData,
@@ -105,7 +105,7 @@ export function RecordingView({
   refreshData,
 }: RecordingViewProps) {
   const { t } = useTranslation(["views/events"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement | null>(null);
 

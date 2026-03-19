@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Cameras Stats - Frigate",
-    "storage": "Storage Stats - Frigate",
-    "general": "General Stats - Frigate",
-    "enrichments": "Enrichments Stats - Frigate",
+    "cameras": "Cameras Stats - SecureVu",
+    "storage": "Storage Stats - SecureVu",
+    "general": "General Stats - SecureVu",
+    "enrichments": "Enrichments Stats - SecureVu",
     "logs": {
-      "frigate": "Frigate Logs - Frigate",
-      "go2rtc": "Go2RTC Logs - Frigate",
-      "nginx": "Nginx Logs - Frigate",
-      "websocket": "Messages Logs - Frigate"
+      "securevu": "SecureVu Logs - SecureVu",
+      "go2rtc": "Go2RTC Logs - SecureVu",
+      "nginx": "Nginx Logs - SecureVu",
+      "websocket": "Messages Logs - SecureVu"
     }
   },
   "title": "System",
@@ -109,7 +109,7 @@
       "intelGpuWarning": {
         "title": "Intel GPU Stats Warning",
         "message": "GPU stats unavailable",
-        "description": "This is a known bug in Intel's GPU stats reporting tools (intel_gpu_top) where it will break and repeatedly return a GPU usage of 0% even in cases where hardware acceleration and object detection are correctly running on the (i)GPU. This is not a Frigate bug. You can restart the host to temporarily fix the issue and confirm that the GPU is working correctly. This does not affect performance."
+        "description": "This is a known bug in Intel's GPU stats reporting tools (intel_gpu_top) where it will break and repeatedly return a GPU usage of 0% even in cases where hardware acceleration and object detection are correctly running on the (i)GPU. This is not a SecureVu bug. You can restart the host to temporarily fix the issue and confirm that the GPU is working correctly. This does not affect performance."
       }
     },
     "otherProcesses": {
@@ -130,7 +130,7 @@
     "overview": "Overview",
     "recordings": {
       "title": "Recordings",
-      "tips": "This value represents the total storage used by the recordings in Frigate's database. Frigate does not track storage usage for all files on your disk.",
+      "tips": "This value represents the total storage used by the recordings in SecureVu's database. SecureVu does not track storage usage for all files on your disk.",
       "earliestRecording": "Earliest recording available:"
     },
     "shm": {
@@ -146,7 +146,7 @@
       "bandwidth": "Bandwidth",
       "unused": {
         "title": "Unused",
-        "tips": "This value may not accurately represent the free space available to Frigate if you have other files stored on your drive beyond Frigate's recordings. Frigate does not track storage usage outside of its recordings."
+        "tips": "This value may not accurately represent the free space available to SecureVu if you have other files stored on your drive beyond SecureVu's recordings. SecureVu does not track storage usage outside of its recordings."
       }
     }
   },

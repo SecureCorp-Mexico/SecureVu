@@ -1,10 +1,10 @@
-# GitHub Copilot Instructions for Frigate NVR
+# GitHub Copilot Instructions for SecureVu NVR
 
-This document provides coding guidelines and best practices for contributing to Frigate NVR, a complete and local NVR designed for Home Assistant with AI object detection.
+This document provides coding guidelines and best practices for contributing to SecureVu NVR, a complete and local NVR designed for Home Assistant with AI object detection.
 
 ## Project Overview
 
-Frigate NVR is a realtime object detection system for IP cameras that uses:
+SecureVu NVR is a realtime object detection system for IP cameras that uses:
 
 - **Backend**: Python 3.13+ with FastAPI, OpenCV, TensorFlow/ONNX
 - **Frontend**: React with TypeScript, Vite, TailwindCSS
@@ -132,11 +132,11 @@ When reviewing code, do NOT comment on:
 
 ### File Organization
 
-- **API Endpoints**: `frigate/api/` - FastAPI route handlers
-- **Configuration**: `frigate/config/` - Configuration parsing and validation
-- **Detectors**: `frigate/detectors/` - Object detection backends
-- **Events**: `frigate/events/` - Event management and storage
-- **Utilities**: `frigate/util/` - Shared utility functions
+- **API Endpoints**: `securevu/api/` - FastAPI route handlers
+- **Configuration**: `securevu/config/` - Configuration parsing and validation
+- **Detectors**: `securevu/detectors/` - Object detection backends
+- **Events**: `securevu/events/` - Event management and storage
+- **Utilities**: `securevu/util/` - Shared utility functions
 
 ## Frontend (React/TypeScript) Standards
 
@@ -197,7 +197,7 @@ Key rules enforced:
 
 - **Framework**: Python unittest
 - **Run Command**: `python3 -u -m unittest`
-- **Location**: `frigate/test/`
+- **Location**: `securevu/test/`
 - **Coverage**: Aim for comprehensive test coverage of core functionality
 - **Pattern**: Use `TestCase` classes with descriptive test method names
   ```python
@@ -223,16 +223,16 @@ Key rules enforced:
 python3 -u -m unittest
 
 # Run specific test file
-python3 -u -m unittest frigate.test.test_ffmpeg_presets
+python3 -u -m unittest securevu.test.test_ffmpeg_presets
 
 # Check formatting (Ruff)
-ruff format --check frigate/
+ruff format --check securevu/
 
 # Apply formatting
-ruff format frigate/
+ruff format securevu/
 
 # Run linter
-ruff check frigate/
+ruff check securevu/
 ```
 
 ### Frontend (from web/ directory)
@@ -272,7 +272,7 @@ make debug
 
 ```python
 from fastapi import APIRouter, Request
-from frigate.api.defs.tags import Tags
+from securevu.api.defs.tags import Tags
 
 router = APIRouter(tags=[Tags.Events])
 
@@ -285,15 +285,15 @@ async def get_events(request: Request, limit: int = 100):
 ### Configuration Access
 
 ```python
-# Access Frigate configuration
-config: FrigateConfig = request.app.frigate_config
+# Access SecureVu configuration
+config: SecureVuConfig = request.app.securevu_config
 camera_config = config.cameras["front_door"]
 ```
 
 ### Database Queries
 
 ```python
-from frigate.models import Event
+from securevu.models import Event
 
 # Use Peewee ORM for database access
 events = (
@@ -379,7 +379,7 @@ except ValueError:
 
 ### Directory Structure
 
-- Backend code: `frigate/`
+- Backend code: `securevu/`
 - Frontend code: `web/`
 - Docker files: `docker/`
 - Documentation: `docs/`
@@ -396,6 +396,6 @@ Always conform new and refactored code to the existing coding style in the proje
 
 ## Additional Resources
 
-- Documentation: https://docs.frigate.video
-- Main Repository: https://github.com/blakeblackshear/frigate
-- Home Assistant Integration: https://github.com/blakeblackshear/frigate-hass-integration
+- Documentation: https://docs.secure.vu
+- Main Repository: https://github.com/SecureCorp-Mexico/SecureVu
+- Home Assistant Integration: https://github.com/SecureCorp-Mexico/SecureVu-hass-integration

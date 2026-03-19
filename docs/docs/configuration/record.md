@@ -13,7 +13,7 @@ H265 recordings can be viewed in Chrome 108+, Edge and Safari only. All other br
 
 ### Most conservative: Ensure all video is saved
 
-For users deploying Frigate in environments where it is important to have contiguous video stored even if there was no detectable motion, the following config will store all video for 3 days. After 3 days, only video containing motion will be saved for 7 days. After 7 days, only video containing motion and overlapping with alerts or detections will be retained until 30 days have passed.
+For users deploying SecureVu in environments where it is important to have contiguous video stored even if there was no detectable motion, the following config will store all video for 3 days. After 3 days, only video containing motion will be saved for 7 days. After 7 days, only video containing motion and overlapping with alerts or detections will be retained until 30 days have passed.
 
 ```yaml
 record:
@@ -66,13 +66,13 @@ record:
       mode: motion
 ```
 
-## Will Frigate delete old recordings if my storage runs out?
+## Will SecureVu delete old recordings if my storage runs out?
 
-As of Frigate 0.12 if there is less than an hour left of storage, the oldest 2 hours of recordings will be deleted.
+As of SecureVu 0.12 if there is less than an hour left of storage, the oldest 2 hours of recordings will be deleted.
 
 ## Configuring Recording Retention
 
-Frigate supports both continuous and tracked object based recordings with separate retention modes and retention periods.
+SecureVu supports both continuous and tracked object based recordings with separate retention modes and retention periods.
 
 :::tip
 
@@ -116,11 +116,11 @@ This configuration will retain recording segments that overlap with alerts and d
 
 ## Can I have "continuous" recordings, but only at certain times?
 
-Using Frigate UI, Home Assistant, or MQTT, cameras can be automated to only record in certain situations or at certain times.
+Using SecureVu UI, Home Assistant, or MQTT, cameras can be automated to only record in certain situations or at certain times.
 
 ## How do I export recordings?
 
-Footage can be exported from Frigate by right-clicking (desktop) or long pressing (mobile) on a review item in the Review pane or by clicking the Export button in the History view. Exported footage is then organized and searchable through the Export view, accessible from the main navigation bar.
+Footage can be exported from SecureVu by right-clicking (desktop) or long pressing (mobile) on a review item in the Review pane or by clicking the Export button in the History view. Exported footage is then organized and searchable through the Export view, accessible from the main navigation bar.
 
 ### Time-lapse export
 
@@ -158,9 +158,9 @@ Apple devices running the Safari browser may fail to playback h.265 recordings. 
 
 Media files (event snapshots, event thumbnails, review thumbnails, previews, exports, and recordings) can become orphaned when database entries are deleted but the corresponding files remain on disk.
 
-Normal operation may leave small numbers of orphaned files until Frigate's scheduled cleanup, but crashes, configuration changes, or upgrades may cause more orphaned files that Frigate does not clean up. This feature checks the file system for media files and removes any that are not referenced in the database.
+Normal operation may leave small numbers of orphaned files until SecureVu's scheduled cleanup, but crashes, configuration changes, or upgrades may cause more orphaned files that SecureVu does not clean up. This feature checks the file system for media files and removes any that are not referenced in the database.
 
-The Maintenance pane in the Frigate UI or an API endpoint `POST /api/media/sync` can be used to trigger a media sync. When using the API, a job ID is returned and the operation continues on the server. Status can be checked with the `/api/media/sync/status/{job_id}` endpoint.
+The Maintenance pane in the SecureVu UI or an API endpoint `POST /api/media/sync` can be used to trigger a media sync. When using the API, a job ID is returned and the operation continues on the server. Status can be checked with the `/api/media/sync/status/{job_id}` endpoint.
 
 :::warning
 

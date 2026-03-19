@@ -5,9 +5,9 @@ import os
 import cv2
 import numpy as np
 
-from frigate.config import MotionConfig
-from frigate.motion.improved_motion import ImprovedMotionDetector
-from frigate.util import create_mask
+from securevu.config import MotionConfig
+from securevu.motion.improved_motion import ImprovedMotionDetector
+from securevu.util import create_mask
 
 # get info on the video
 # cap = cv2.VideoCapture("debug/front_cam_2023_05_23_08_41__2023_05_23_08_43.mp4")

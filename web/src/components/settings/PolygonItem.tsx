@@ -27,7 +27,7 @@ import axios from "axios";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { reviewQueries } from "@/utils/zoneEdutUtil";
 import IconWrapper from "../ui/icon-wrapper";
 import { buttonVariants } from "../ui/button";
@@ -65,7 +65,7 @@ export default function PolygonItem({
 }: PolygonItemProps) {
   const { t } = useTranslation("views/settings");
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const { payload: motionMaskState, send: sendMotionMaskState } =
     useMotionMaskState(polygon.camera, polygon.name);

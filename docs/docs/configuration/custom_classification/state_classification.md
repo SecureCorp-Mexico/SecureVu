@@ -3,11 +3,11 @@ id: state_classification
 title: State Classification
 ---
 
-State classification allows you to train a custom MobileNetV2 classification model on a fixed region of your camera frame(s) to determine a current state. The model can be configured to run on a schedule and/or when motion is detected in that region. Classification results are available through the `frigate/<camera_name>/classification/<model_name>` MQTT topic and in Home Assistant sensors via the official Frigate integration.
+State classification allows you to train a custom MobileNetV2 classification model on a fixed region of your camera frame(s) to determine a current state. The model can be configured to run on a schedule and/or when motion is detected in that region. Classification results are available through the `securevu/<camera_name>/classification/<model_name>` MQTT topic and in Home Assistant sensors via the official SecureVu integration.
 
 ## Minimum System Requirements
 
-State classification models are lightweight and run very fast on CPU. Inference should be usable on virtually any machine that can run Frigate.
+State classification models are lightweight and run very fast on CPU. Inference should be usable on virtually any machine that can run SecureVu.
 
 Training the model does briefly use a high amount of system resources for about 1–3 minutes per training run. On lower-power devices, training may take longer.
 
@@ -52,7 +52,7 @@ An optional config, `save_attempts`, can be set as a key under the model name. T
 
 ## Training the model
 
-Creating and training the model is done within the Frigate UI using the `Classification` page. The process consists of three steps:
+Creating and training the model is done within the SecureVu UI using the `Classification` page. The process consists of three steps:
 
 ### Step 1: Name and Define
 
@@ -79,13 +79,13 @@ Once some images are assigned, training will begin automatically.
 
 To troubleshoot issues with state classification models, enable debug logging to see detailed information about classification attempts, scores, and state verification.
 
-Enable debug logs for classification models by adding `frigate.data_processing.real_time.custom_classification: debug` to your `logger` configuration. These logs are verbose, so only keep this enabled when necessary. Restart Frigate after this change.
+Enable debug logs for classification models by adding `securevu.data_processing.real_time.custom_classification: debug` to your `logger` configuration. These logs are verbose, so only keep this enabled when necessary. Restart SecureVu after this change.
 
 ```yaml
 logger:
   default: info
   logs:
-    frigate.data_processing.real_time.custom_classification: debug
+    securevu.data_processing.real_time.custom_classification: debug
 ```
 
 The debug logs will show:

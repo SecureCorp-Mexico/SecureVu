@@ -2,7 +2,7 @@
 """
 Generate English translation JSON files from Pydantic config models.
 
-This script dynamically extracts all top-level config sections from FrigateConfig
+This script dynamically extracts all top-level config sections from SecureVuConfig
 and generates JSON translation files with titles and descriptions for the web UI.
 """
 
@@ -12,8 +12,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, get_args, get_origin
 
-from frigate.config.config import FrigateConfig
-from frigate.util.schema import get_config_schema
+from securevu.config.config import SecureVuConfig
+from securevu.util.schema import get_config_schema
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -252,8 +252,8 @@ def main():
         f"Using output directory (existing files will be overwritten): {output_dir}"
     )
 
-    config_fields = FrigateConfig.model_fields
-    config_schema = get_config_schema(FrigateConfig)
+    config_fields = SecureVuConfig.model_fields
+    config_schema = get_config_schema(SecureVuConfig)
     logger.info(f"Found {len(config_fields)} top-level config sections")
 
     global_translations = {}
@@ -319,22 +319,22 @@ def main():
         # Add camera-level fields to global config documentation if applicable
         CAMERA_LEVEL_FIELDS = {
             "birdseye": (
-                "frigate.config.camera.birdseye",
+                "securevu.config.camera.birdseye",
                 "BirdseyeCameraConfig",
                 ["order"],
             ),
             "ffmpeg": (
-                "frigate.config.camera.ffmpeg",
+                "securevu.config.camera.ffmpeg",
                 "CameraFfmpegConfig",
                 ["inputs"],
             ),
             "lpr": (
-                "frigate.config.classification",
+                "securevu.config.classification",
                 "CameraLicensePlateRecognitionConfig",
                 ["expire_time"],
             ),
             "semantic_search": (
-                "frigate.config.classification",
+                "securevu.config.classification",
                 "CameraSemanticSearchConfig",
                 ["triggers"],
             ),
@@ -415,16 +415,16 @@ def main():
 
         logger.info(f"Added section to global translations: {field_name}")
 
-    # Handle camera-level configs that aren't top-level FrigateConfig fields
+    # Handle camera-level configs that aren't top-level SecureVuConfig fields
     # These are defined as fields in CameraConfig, so we extract title/description from there
     camera_level_configs = {
-        "camera_mqtt": ("frigate.config.camera.mqtt", "CameraMqttConfig", "mqtt"),
-        "camera_ui": ("frigate.config.camera.ui", "CameraUiConfig", "ui"),
-        "onvif": ("frigate.config.camera.onvif", "OnvifConfig", "onvif"),
+        "camera_mqtt": ("securevu.config.camera.mqtt", "CameraMqttConfig", "mqtt"),
+        "camera_ui": ("securevu.config.camera.ui", "CameraUiConfig", "ui"),
+        "onvif": ("securevu.config.camera.onvif", "OnvifConfig", "onvif"),
     }
 
     # Import CameraConfig to extract field metadata
-    from frigate.config.camera.camera import CameraConfig
+    from securevu.config.camera.camera import CameraConfig
 
     camera_config_schema = CameraConfig.model_json_schema()
     camera_properties = camera_config_schema.get("properties", {})
@@ -495,7 +495,7 @@ def main():
         if "camera_config_schema" in locals():
             camera_schema = camera_config_schema
         else:
-            from frigate.config.camera.camera import CameraConfig
+            from securevu.config.camera.camera import CameraConfig
 
             camera_schema = CameraConfig.model_json_schema()
 

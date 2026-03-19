@@ -27,9 +27,9 @@ import { VolumeSlider } from "@/components/ui/slider";
 import { CameraStreamingDialog } from "../settings/CameraStreamingDialog";
 import {
   AllGroupsStreamingSettings,
-  FrigateConfig,
+  SecureVuConfig,
   GroupStreamingSettings,
-} from "@/types/frigateConfig";
+} from "@/types/securevuConfig";
 import { useStreamingSettings } from "@/context/streaming-settings-provider";
 import {
   IoIosNotifications,
@@ -67,7 +67,7 @@ type LiveContextMenuProps = {
   statsState: boolean;
   toggleStats: () => void;
   resetPreferredLiveMode: () => void;
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   children?: ReactNode;
   streamMetadata?: { [key: string]: LiveStreamMetadata };
 };

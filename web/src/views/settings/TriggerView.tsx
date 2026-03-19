@@ -34,7 +34,7 @@ import ActivityIndicator from "@/components/indicators/activity-indicator";
 import TriggerWizardDialog from "@/components/trigger/TriggerWizardDialog";
 import CreateTriggerDialog from "@/components/overlay/CreateTriggerDialog";
 import DeleteTriggerDialog from "@/components/overlay/DeleteTriggerDialog";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { Trigger, TriggerAction, TriggerType } from "@/types/trigger";
 import { useSearchEffect } from "@/hooks/use-overlay-state";
 import { cn } from "@/lib/utils";
@@ -88,7 +88,7 @@ export default function TriggerView({
 }: TriggerViewProps) {
   const { t } = useTranslation("views/settings");
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
   const { data: trigger_status, mutate } = useSWR(
     config?.cameras[selectedCamera]?.semantic_search?.triggers &&
       Object.keys(config.cameras[selectedCamera].semantic_search.triggers)

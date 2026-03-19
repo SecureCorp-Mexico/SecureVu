@@ -24,7 +24,7 @@
     },
     "friendly_name": {
         "label": "Nombre descriptivo",
-        "description": "Nombre descriptivo de la cámara utilizado en la interfaz de usuario de Frigate"
+        "description": "Nombre descriptivo de la cámara utilizado en la interfaz de usuario de SecureVu"
     },
     "label": "Configuración de Cámara"
 }

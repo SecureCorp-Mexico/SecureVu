@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import { FrigateStats, GpuInfo } from "@/types/stats";
+import { SecureVuStats, GpuInfo } from "@/types/stats";
 import { useEffect, useMemo, useState } from "react";
-import { useFrigateStats } from "@/api/ws";
+import { useSecureVuStats } from "@/api/ws";
 import {
   DetectorCpuThreshold,
   DetectorMemThreshold,
@@ -37,7 +37,7 @@ export default function GeneralMetrics({
 
   // stats
 
-  const { data: initialStats } = useSWR<FrigateStats[]>(
+  const { data: initialStats } = useSWR<SecureVuStats[]>(
     [
       "stats/history",
       { keys: "cpu_usages,detectors,gpu_usages,npu_usages,processes,service" },
@@ -47,8 +47,8 @@ export default function GeneralMetrics({
     },
   );
 
-  const [statsHistory, setStatsHistory] = useState<FrigateStats[]>([]);
-  const updatedStats = useFrigateStats();
+  const [statsHistory, setStatsHistory] = useState<SecureVuStats[]>([]);
+  const updatedStats = useSecureVuStats();
 
   useEffect(() => {
     if (initialStats == undefined || initialStats.length == 0) {

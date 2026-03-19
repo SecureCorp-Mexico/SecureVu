@@ -4,7 +4,7 @@ import { isDesktop, isIOS, isMobile } from "react-device-detect";
 import { FaArrowRight, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineRestartAlt, MdUndo } from "react-icons/md";
 
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { TimeRange } from "@/types/timeline";
 
 import { Button } from "@/components/ui/button";
@@ -52,7 +52,7 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 type MotionSearchDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  config: FrigateConfig;
+  config: SecureVuConfig;
   cameras: string[];
   selectedCamera: string | null;
   onCameraSelect: (camera: string) => void;

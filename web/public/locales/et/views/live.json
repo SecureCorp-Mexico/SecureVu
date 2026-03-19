@@ -14,8 +14,8 @@
     "autotracking": "Automaatne jälgimine",
     "recording": "Salvestus"
   },
-  "documentTitle": "Otseülekanne - Frigate",
-  "documentTitle.withCamera": "{{camera}} - Otseülekanne - Frigate",
+  "documentTitle": "Otseülekanne - SecureVu",
+  "documentTitle.withCamera": "{{camera}} - Otseülekanne - SecureVu",
   "lowBandwidthMode": "Väikese ribalaiusega režiim",
   "twoWayTalk": {
     "enable": "Lülita kahepoolne kõneside sisse",
@@ -142,10 +142,10 @@
       "description": "Sul pole õigust ühegi selle grupi kaamera vaatamiseks."
     },
     "title": "Ühtegi kaamerat pole seadistatud",
-    "description": "Alustamiseks ühenda mõni kaamera Frigate'iga.",
+    "description": "Alustamiseks ühenda mõni kaamera SecureVu'iga.",
     "default": {
       "title": "Ühtegi kaamerat pole seadistatud",
-      "description": "Alustamiseks ühenda mõni kaamera Frigate'iga.",
+      "description": "Alustamiseks ühenda mõni kaamera SecureVu'iga.",
       "buttonText": "Lisa kaamera"
     },
     "group": {

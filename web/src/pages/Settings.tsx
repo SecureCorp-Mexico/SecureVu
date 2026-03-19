@@ -27,7 +27,7 @@ import {
 import useOptimisticState from "@/hooks/use-optimistic-state";
 import { isMobile } from "react-device-detect";
 import { FaVideo } from "react-icons/fa";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, SecureVuConfig } from "@/types/securevuConfig";
 import type { ConfigSectionData } from "@/types/configForm";
 import useSWR from "swr";
 import FilterSwitch from "@/components/filter/FilterSwitch";
@@ -39,7 +39,7 @@ import MasksAndZonesView from "@/views/settings/MasksAndZonesView";
 import UsersView from "@/views/settings/UsersView";
 import RolesView from "@/views/settings/RolesView";
 import UiSettingsView from "@/views/settings/UiSettingsView";
-import FrigatePlusSettingsView from "@/views/settings/FrigatePlusSettingsView";
+import SecureVuPlusSettingsView from "@/views/settings/SecureVuPlusSettingsView";
 import MediaSyncSettingsView from "@/views/settings/MediaSyncSettingsView";
 import RegionGridSettingsView from "@/views/settings/RegionGridSettingsView";
 import SystemDetectionModelSettingsView from "@/views/settings/SystemDetectionModelSettingsView";
@@ -154,7 +154,7 @@ const allSettingsViews = [
   "users",
   "roles",
   "notifications",
-  "frigateplus",
+  "securevuplus",
   "mediaSync",
   "regionGrid",
 ] as const;
@@ -441,8 +441,8 @@ const settingsGroups = [
     items: [{ key: "notifications", component: NotificationsSettingsPage }],
   },
   {
-    label: "frigateplus",
-    items: [{ key: "frigateplus", component: FrigatePlusSettingsView }],
+    label: "securevuplus",
+    items: [{ key: "securevuplus", component: SecureVuPlusSettingsView }],
   },
   {
     label: "maintenance",
@@ -601,7 +601,7 @@ export default function Settings() {
     Partial<Record<SettingsType, SectionStatus>>
   >({});
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   const [searchParams] = useSearchParams();
 

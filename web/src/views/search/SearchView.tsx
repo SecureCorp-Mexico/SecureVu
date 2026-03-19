@@ -6,7 +6,7 @@ import SearchDetailDialog, {
 } from "@/components/overlay/detail/SearchDetailDialog";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { SearchFilter, SearchResult, SearchSource } from "@/types/search";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { isMobileOnly } from "react-device-detect";
@@ -74,7 +74,7 @@ export default function SearchView({
 }: SearchViewProps) {
   const { t } = useTranslation(["views/explore"]);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
   const navigate = useNavigate();

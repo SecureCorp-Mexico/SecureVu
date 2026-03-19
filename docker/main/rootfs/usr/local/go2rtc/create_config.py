@@ -8,17 +8,17 @@ from typing import Any
 
 from ruamel.yaml import YAML
 
-sys.path.insert(0, "/opt/frigate")
-from frigate.const import (
+sys.path.insert(0, "/opt/securevu")
+from securevu.const import (
     BIRDSEYE_PIPE,
     DEFAULT_FFMPEG_VERSION,
     INCLUDED_FFMPEG_VERSIONS,
     LIBAVFORMAT_VERSION_MAJOR,
 )
-from frigate.ffmpeg_presets import parse_preset_hardware_acceleration_encode
-from frigate.util.config import find_config_file
+from securevu.ffmpeg_presets import parse_preset_hardware_acceleration_encode
+from securevu.util.config import find_config_file
 
-sys.path.remove("/opt/frigate")
+sys.path.remove("/opt/securevu")
 
 yaml = YAML()
 
@@ -47,12 +47,12 @@ ALLOW_ARBITRARY_EXEC = allow_arbitrary_exec is not None and str(
     allow_arbitrary_exec
 ).lower() in ("true", "1", "yes")
 
-FRIGATE_ENV_VARS = {k: v for k, v in os.environ.items() if k.startswith("FRIGATE_")}
+SECUREVU_ENV_VARS = {k: v for k, v in os.environ.items() if k.startswith("SECUREVU_")}
 # read docker secret files as env vars too
 if os.path.isdir("/run/secrets"):
     for secret_file in os.listdir("/run/secrets"):
-        if secret_file.startswith("FRIGATE_"):
-            FRIGATE_ENV_VARS[secret_file] = (
+        if secret_file.startswith("SECUREVU_"):
+            SECUREVU_ENV_VARS[secret_file] = (
                 Path(os.path.join("/run/secrets", secret_file)).read_text().strip()
             )
 
@@ -71,7 +71,7 @@ except FileNotFoundError:
 
 go2rtc_config: dict[str, Any] = config.get("go2rtc", {})
 
-# Need to enable CORS for go2rtc so the frigate integration / card work automatically
+# Need to enable CORS for go2rtc so the securevu integration / card work automatically
 if go2rtc_config.get("api") is None:
     go2rtc_config["api"] = {"origin": "*"}
 elif go2rtc_config["api"].get("origin") is None:
@@ -94,7 +94,7 @@ if go2rtc_config.get("webrtc") is None:
 if go2rtc_config["webrtc"].get("candidates") is None:
     default_candidates = []
     # use internal candidate if it was discovered when running through the add-on
-    internal_candidate = os.environ.get("FRIGATE_GO2RTC_WEBRTC_CANDIDATE_INTERNAL")
+    internal_candidate = os.environ.get("SECUREVU_GO2RTC_WEBRTC_CANDIDATE_INTERNAL")
     if internal_candidate is not None:
         default_candidates.append(internal_candidate)
     # should set default stun server so webrtc can work
@@ -104,12 +104,12 @@ if go2rtc_config["webrtc"].get("candidates") is None:
 
 if go2rtc_config.get("rtsp", {}).get("username") is not None:
     go2rtc_config["rtsp"]["username"] = go2rtc_config["rtsp"]["username"].format(
-        **FRIGATE_ENV_VARS
+        **SECUREVU_ENV_VARS
     )
 
 if go2rtc_config.get("rtsp", {}).get("password") is not None:
     go2rtc_config["rtsp"]["password"] = go2rtc_config["rtsp"]["password"].format(
-        **FRIGATE_ENV_VARS
+        **SECUREVU_ENV_VARS
     )
 
 # ensure ffmpeg path is set correctly
@@ -145,7 +145,7 @@ for name in list(go2rtc_config.get("streams", {})):
 
     if isinstance(stream, str):
         try:
-            formatted_stream = stream.format(**FRIGATE_ENV_VARS)
+            formatted_stream = stream.format(**SECUREVU_ENV_VARS)
             if not ALLOW_ARBITRARY_EXEC and is_restricted_source(formatted_stream):
                 print(
                     f"[ERROR] Stream '{name}' uses a restricted source (echo/expr/exec) which is disabled by default for security. "
@@ -156,7 +156,7 @@ for name in list(go2rtc_config.get("streams", {})):
             go2rtc_config["streams"][name] = formatted_stream
         except KeyError as e:
             print(
-                "[ERROR] Invalid substitution found, see https://docs.frigate.video/configuration/restream#advanced-restream-configurations for more info."
+                "[ERROR] Invalid substitution found, see https://docs.secure.vu/configuration/restream#advanced-restream-configurations for more info."
             )
             sys.exit(e)
 
@@ -164,7 +164,7 @@ for name in list(go2rtc_config.get("streams", {})):
         filtered_streams = []
         for i, stream_item in enumerate(stream):
             try:
-                formatted_stream = stream_item.format(**FRIGATE_ENV_VARS)
+                formatted_stream = stream_item.format(**SECUREVU_ENV_VARS)
                 if not ALLOW_ARBITRARY_EXEC and is_restricted_source(formatted_stream):
                     print(
                         f"[ERROR] Stream '{name}' item {i + 1} uses a restricted source (echo/expr/exec) which is disabled by default for security. "
@@ -175,7 +175,7 @@ for name in list(go2rtc_config.get("streams", {})):
                 filtered_streams.append(formatted_stream)
             except KeyError as e:
                 print(
-                    "[ERROR] Invalid substitution found, see https://docs.frigate.video/configuration/restream#advanced-restream-configurations for more info."
+                    "[ERROR] Invalid substitution found, see https://docs.secure.vu/configuration/restream#advanced-restream-configurations for more info."
                 )
                 sys.exit(e)
 
