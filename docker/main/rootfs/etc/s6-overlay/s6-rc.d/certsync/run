@@ -8,7 +8,7 @@ set -o errexit -o nounset -o pipefail
 
 echo "[INFO] Starting certsync..."
 
-lefile="/etc/letsencrypt/live/frigate/fullchain.pem"
+lefile="/etc/letsencrypt/live/securevu/fullchain.pem"
 
 tls_enabled=`python3 /usr/local/nginx/get_nginx_settings.py | jq -r .tls.enabled`
 listen_external_port=`python3 /usr/local/nginx/get_nginx_settings.py | jq -r .listen.external_port`
