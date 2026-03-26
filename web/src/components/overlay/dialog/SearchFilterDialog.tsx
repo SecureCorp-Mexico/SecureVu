@@ -10,7 +10,7 @@ import {
   SearchFilter,
   SearchSource,
 } from "@/types/search";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import {
   Popover,
   PopoverContent,
@@ -45,7 +45,7 @@ import { LuCheck, LuSquareCheck, LuX } from "react-icons/lu";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 
 type SearchFilterDialogProps = {
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   filter?: SearchFilter;
   filterValues: {
     cameras: string[];
@@ -188,7 +188,7 @@ export default function SearchFilterDialog({
             ? currentFilter.has_clip === 1
             : undefined
         }
-        submittedToFrigatePlus={
+        submittedToSecureVuPlus={
           currentFilter.is_submitted !== undefined
             ? currentFilter.is_submitted === 1
             : undefined
@@ -268,7 +268,7 @@ export default function SearchFilterDialog({
 }
 
 type TimeRangeFilterContentProps = {
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   timeRange?: string;
   updateTimeRange: (range: string | undefined) => void;
 };
@@ -598,7 +598,7 @@ export function ScoreFilterContent({
 }
 
 type SpeedFilterContentProps = {
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   minSpeed: number | undefined;
   maxSpeed: number | undefined;
   setSpeedRange: (min: number | undefined, max: number | undefined) => void;
@@ -661,14 +661,14 @@ export function SpeedFilterContent({
 }
 
 type SnapshotClipContentProps = {
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   hasSnapshot: boolean | undefined;
   hasClip: boolean | undefined;
-  submittedToFrigatePlus: boolean | undefined;
+  submittedToSecureVuPlus: boolean | undefined;
   setSnapshotClip: (
     snapshot: boolean | undefined,
     clip: boolean | undefined,
-    submittedToFrigate: boolean | undefined,
+    submittedToSecureVu: boolean | undefined,
   ) => void;
 };
 
@@ -676,7 +676,7 @@ export function SnapshotClipFilterContent({
   config,
   hasSnapshot,
   hasClip,
-  submittedToFrigatePlus,
+  submittedToSecureVuPlus,
   setSnapshotClip,
 }: SnapshotClipContentProps) {
   const { t } = useTranslation(["components/filter"]);
@@ -686,8 +686,8 @@ export function SnapshotClipFilterContent({
   const [isClipFilterActive, setIsClipFilterActive] = useState(
     hasClip !== undefined,
   );
-  const [isFrigatePlusFilterActive, setIsFrigatePlusFilterActive] = useState(
-    submittedToFrigatePlus !== undefined,
+  const [isSecureVuPlusFilterActive, setIsSecureVuPlusFilterActive] = useState(
+    submittedToSecureVuPlus !== undefined,
   );
 
   useEffect(() => {
@@ -699,10 +699,10 @@ export function SnapshotClipFilterContent({
   }, [hasClip]);
 
   useEffect(() => {
-    setIsFrigatePlusFilterActive(submittedToFrigatePlus !== undefined);
-  }, [submittedToFrigatePlus]);
+    setIsSecureVuPlusFilterActive(submittedToSecureVuPlus !== undefined);
+  }, [submittedToSecureVuPlus]);
 
-  const isFrigatePlusFilterDisabled =
+  const isSecureVuPlusFilterDisabled =
     !isSnapshotFilterActive || hasSnapshot !== true;
 
   return (
@@ -720,7 +720,7 @@ export function SnapshotClipFilterContent({
               onCheckedChange={(checked) => {
                 setIsSnapshotFilterActive(checked as boolean);
                 if (checked) {
-                  setSnapshotClip(true, hasClip, submittedToFrigatePlus);
+                  setSnapshotClip(true, hasClip, submittedToSecureVuPlus);
                 } else {
                   setSnapshotClip(undefined, hasClip, undefined);
                 }
@@ -740,7 +740,7 @@ export function SnapshotClipFilterContent({
             }
             onValueChange={(value) => {
               if (value === "yes")
-                setSnapshotClip(true, hasClip, submittedToFrigatePlus);
+                setSnapshotClip(true, hasClip, submittedToSecureVuPlus);
               else if (value === "no")
                 setSnapshotClip(false, hasClip, undefined);
             }}
@@ -773,10 +773,10 @@ export function SnapshotClipFilterContent({
                       <Checkbox
                         id="plus-filter"
                         className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
-                        checked={isFrigatePlusFilterActive}
-                        disabled={isFrigatePlusFilterDisabled}
+                        checked={isSecureVuPlusFilterActive}
+                        disabled={isSecureVuPlusFilterDisabled}
                         onCheckedChange={(checked) => {
-                          setIsFrigatePlusFilterActive(checked as boolean);
+                          setIsSecureVuPlusFilterActive(checked as boolean);
                           if (checked) {
                             setSnapshotClip(hasSnapshot, hasClip, false);
                           } else {
@@ -786,14 +786,14 @@ export function SnapshotClipFilterContent({
                       />
                     </div>
                   </TooltipTrigger>
-                  {isFrigatePlusFilterDisabled && (
+                  {isSecureVuPlusFilterDisabled && (
                     <TooltipContent
                       className="max-w-60"
                       side="left"
                       sideOffset={5}
                     >
                       <Trans ns="components/filter">
-                        features.submittedToFrigatePlus.tips
+                        features.submittedToSecureVuPlus.tips
                       </Trans>
                     </TooltipContent>
                   )}
@@ -803,15 +803,15 @@ export function SnapshotClipFilterContent({
                 htmlFor="plus-filter"
                 className="cursor-pointer text-sm font-medium leading-none"
               >
-                {t("features.submittedToFrigatePlus.label")}
+                {t("features.submittedToSecureVuPlus.label")}
               </Label>
             </div>
             <ToggleGroup
               type="single"
               value={
-                submittedToFrigatePlus === undefined
+                submittedToSecureVuPlus === undefined
                   ? undefined
-                  : submittedToFrigatePlus
+                  : submittedToSecureVuPlus
                     ? "yes"
                     : "no"
               }
@@ -822,7 +822,7 @@ export function SnapshotClipFilterContent({
                   setSnapshotClip(hasSnapshot, hasClip, false);
                 else setSnapshotClip(hasSnapshot, hasClip, undefined);
               }}
-              disabled={!isFrigatePlusFilterActive}
+              disabled={!isSecureVuPlusFilterActive}
             >
               <ToggleGroupItem
                 value="yes"
@@ -851,12 +851,12 @@ export function SnapshotClipFilterContent({
               onCheckedChange={(checked) => {
                 setIsClipFilterActive(checked as boolean);
                 if (checked) {
-                  setSnapshotClip(hasSnapshot, true, submittedToFrigatePlus);
+                  setSnapshotClip(hasSnapshot, true, submittedToSecureVuPlus);
                 } else {
                   setSnapshotClip(
                     hasSnapshot,
                     undefined,
-                    submittedToFrigatePlus,
+                    submittedToSecureVuPlus,
                   );
                 }
               }}
@@ -873,9 +873,9 @@ export function SnapshotClipFilterContent({
             value={hasClip === undefined ? undefined : hasClip ? "yes" : "no"}
             onValueChange={(value) => {
               if (value === "yes")
-                setSnapshotClip(hasSnapshot, true, submittedToFrigatePlus);
+                setSnapshotClip(hasSnapshot, true, submittedToSecureVuPlus);
               else if (value === "no")
-                setSnapshotClip(hasSnapshot, false, submittedToFrigatePlus);
+                setSnapshotClip(hasSnapshot, false, submittedToSecureVuPlus);
             }}
             disabled={!isClipFilterActive}
           >

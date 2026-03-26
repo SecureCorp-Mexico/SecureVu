@@ -9,7 +9,7 @@ import { TimezoneAwareCalendar } from "./ReviewActivityCalendar";
 import { FaArrowRight, FaCalendarAlt } from "react-icons/fa";
 import { isDesktop, isIOS } from "react-device-detect";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { useTranslation } from "react-i18next";
 
 type CustomTimeSelectorProps = {
@@ -28,7 +28,7 @@ export function CustomTimeSelector({
   endLabel,
 }: CustomTimeSelectorProps) {
   const { t } = useTranslation(["common"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   // times
   const timezoneOffset = useMemo(

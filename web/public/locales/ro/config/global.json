@@ -859,7 +859,7 @@
         },
         "topic_prefix": {
             "label": "Prefix topic",
-            "description": "Prefixul topicului MQTT pentru toate subiectele Frigate; trebuie să fie unic dacă rulezi mai multe instanțe."
+            "description": "Prefixul topicului MQTT pentru toate subiectele SecureVu; trebuie să fie unic dacă rulezi mai multe instanțe."
         },
         "client_id": {
             "label": "ID client",
@@ -950,7 +950,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Calibrare la pornire",
-                "description": "Măsoară vitezele motorului PTZ la pornire pentru a îmbunătăți precizia urmăririi. Frigate va actualiza config-ul cu movement_weights după calibrare."
+                "description": "Măsoară vitezele motorului PTZ la pornire pentru a îmbunătăți precizia urmăririi. SecureVu va actualiza config-ul cu movement_weights după calibrare."
             },
             "zooming": {
                 "label": "Mod zoom",
@@ -987,7 +987,7 @@
         },
         "ignore_time_mismatch": {
             "label": "Ignoră decalaj timp",
-            "description": "Ignoră diferențele de sincronizare a timpului între cameră și serverul Frigate pentru comunicarea ONVIF."
+            "description": "Ignoră diferențele de sincronizare a timpului între cameră și serverul SecureVu pentru comunicarea ONVIF."
         }
     },
     "version": {
@@ -996,11 +996,11 @@
     },
     "safe_mode": {
         "label": "Mod de siguranță",
-        "description": "Când este activat, pornește Frigate în mod de siguranță, cu funcții reduse, pentru depanare."
+        "description": "Când este activat, pornește SecureVu în mod de siguranță, cu funcții reduse, pentru depanare."
     },
     "environment_vars": {
         "label": "Variabile de mediu",
-        "description": "Perechi cheie/valoare ale variabilelor de mediu de setat pentru procesul Frigate în Home Assistant OS. Utilizatorii care nu folosesc HAOS trebuie să folosească configurarea variabilelor de mediu din Docker."
+        "description": "Perechi cheie/valoare ale variabilelor de mediu de setat pentru procesul SecureVu în Home Assistant OS. Utilizatorii care nu folosesc HAOS trebuie să folosească configurarea variabilelor de mediu din Docker."
     },
     "logger": {
         "label": "Jurnalizare",
@@ -1019,7 +1019,7 @@
         "description": "Setări de autentificare și sesiune, inclusiv opțiuni pentru cookie-uri și limite de viteză.",
         "enabled": {
             "label": "Activează autentificarea",
-            "description": "Activează autentificarea nativă pentru interfața Frigate."
+            "description": "Activează autentificarea nativă pentru interfața SecureVu."
         },
         "reset_admin_password": {
             "label": "Resetează parola de admin",
@@ -1064,7 +1064,7 @@
     },
     "database": {
         "label": "Bază de date",
-        "description": "Setări pentru baza de date SQLite folosită de Frigate pentru a stoca obiectele urmărite și metadatele înregistrărilor.",
+        "description": "Setări pentru baza de date SQLite folosită de SecureVu pentru a stoca obiectele urmărite și metadatele înregistrărilor.",
         "path": {
             "label": "Cale bază de date",
             "description": "Calea în sistemul de fișiere unde va fi stocat fișierul bazei de date SQLite."
@@ -1076,13 +1076,13 @@
     },
     "networking": {
         "label": "Rețea",
-        "description": "Setări legate de rețea, cum ar fi activarea IPv6 pentru endpoint-urile Frigate.",
+        "description": "Setări legate de rețea, cum ar fi activarea IPv6 pentru endpoint-urile SecureVu.",
         "ipv6": {
             "label": "Configurare IPv6",
-            "description": "Setări specifice IPv6 pentru serviciile de rețea Frigate.",
+            "description": "Setări specifice IPv6 pentru serviciile de rețea SecureVu.",
             "enabled": {
                 "label": "Activează IPv6",
-                "description": "Activează suportul IPv6 pentru serviciile Frigate (API și interfață) acolo unde este cazul."
+                "description": "Activează suportul IPv6 pentru serviciile SecureVu (API și interfață) acolo unde este cazul."
             }
         },
         "listen": {
@@ -1090,20 +1090,20 @@
             "description": "Configurare pentru porturile de ascultare interne și externe. Aceasta este pentru utilizatori avansați. Pentru majoritatea cazurilor, se recomandă schimbarea secțiunii de porturi din fișierul Docker compose.",
             "internal": {
                 "label": "Port intern",
-                "description": "Portul de ascultare intern pentru Frigate (implicit 5000)."
+                "description": "Portul de ascultare intern pentru SecureVu (implicit 5000)."
             },
             "external": {
                 "label": "Port extern",
-                "description": "Portul de ascultare extern pentru Frigate (implicit 8971)."
+                "description": "Portul de ascultare extern pentru SecureVu (implicit 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proxy",
-        "description": "Setări pentru integrarea Frigate în spatele unui reverse proxy care transmite headere de utilizator autentificat.",
+        "description": "Setări pentru integrarea SecureVu în spatele unui reverse proxy care transmite headere de utilizator autentificat.",
         "header_map": {
             "label": "Mapare headere",
-            "description": "Mapează headerele proxy primite către câmpurile de utilizator și rol din Frigate pentru autentificarea bazată pe proxy.",
+            "description": "Mapează headerele proxy primite către câmpurile de utilizator și rol din SecureVu pentru autentificarea bazată pe proxy.",
             "user": {
                 "label": "Header utilizator",
                 "description": "Header care conține numele de utilizator autentificat furnizat de proxy-ul amonte."
@@ -1114,7 +1114,7 @@
             },
             "role_map": {
                 "label": "Mapare roluri",
-                "description": "Mapează valorile grupurilor din amonte la rolurile Frigate (de exemplu, mapează grupurile de admin la rolul de admin)."
+                "description": "Mapează valorile grupurilor din amonte la rolurile SecureVu (de exemplu, mapează grupurile de admin la rolul de admin)."
             }
         },
         "logout_url": {
@@ -1163,15 +1163,15 @@
         },
         "version_check": {
             "label": "Verificare versiune",
-            "description": "Activează o verificare externă pentru a detecta dacă este disponibilă o versiune Frigate mai nouă."
+            "description": "Activează o verificare externă pentru a detecta dacă este disponibilă o versiune SecureVu mai nouă."
         }
     },
     "tls": {
         "label": "TLS",
-        "description": "Setări TLS pentru endpoint-urile web Frigate (port 8971).",
+        "description": "Setări TLS pentru endpoint-urile web SecureVu (port 8971).",
         "enabled": {
             "label": "Activează TLS",
-            "description": "Activează TLS pentru interfața web și API-ul Frigate pe portul TLS configurat."
+            "description": "Activează TLS pentru interfața web și API-ul SecureVu pe portul TLS configurat."
         }
     },
     "ui": {
@@ -1216,7 +1216,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1275,7 +1275,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1342,7 +1342,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1409,7 +1409,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1468,7 +1468,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1527,7 +1527,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1586,7 +1586,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1645,7 +1645,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1704,7 +1704,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1763,7 +1763,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1818,7 +1818,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1873,7 +1873,7 @@
                 "description": "Opțiuni de configurare specifice modelului detectorului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model de detecție personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale labelmap pentru detector personalizat",
@@ -1932,7 +1932,7 @@
                 "description": "Opțiuni de configurare specifice modelului (cale, dimensiune intrare etc.).",
                 "path": {
                     "label": "Cale model personalizat detecție obiecte",
-                    "description": "Calea către un fișier de model personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+                    "description": "Calea către un fișier de model personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
                 },
                 "labelmap_path": {
                     "label": "Cale label map pentru detector personalizat",
@@ -1994,7 +1994,7 @@
         "description": "Setări pentru configurarea unui model personalizat de detecție și a formei intrării acestuia.",
         "path": {
             "label": "Cale model personalizat detecție obiecte",
-            "description": "Calea către un fișier de model personalizat (sau plus://<model_id> pentru modelele Frigate+)."
+            "description": "Calea către un fișier de model personalizat (sau plus://<model_id> pentru modelele SecureVu+)."
         },
         "labelmap_path": {
             "label": "Cale label map pentru detector personalizat",
@@ -2186,7 +2186,7 @@
         },
         "dashboard": {
             "label": "Arată în interfață",
-            "description": "Comută dacă această cameră este vizibilă peste tot în interfața Frigate. Dezactivarea acestei opțiuni va necesita editarea manuală a config-ului pentru a vedea din nou camera în interfață."
+            "description": "Comută dacă această cameră este vizibilă peste tot în interfața SecureVu. Dezactivarea acestei opțiuni va necesita editarea manuală a config-ului pentru a vedea din nou camera în interfață."
         }
     }
 }

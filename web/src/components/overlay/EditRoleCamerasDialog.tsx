@@ -23,12 +23,12 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Trans, useTranslation } from "react-i18next";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { CameraNameLabel } from "@/components/camera/FriendlyNameLabel";
 
 type EditRoleCamerasOverlayProps = {
   show: boolean;
-  config: FrigateConfig;
+  config: SecureVuConfig;
   role: string;
   currentCameras: string[];
   onSave: (cameras: string[]) => void;

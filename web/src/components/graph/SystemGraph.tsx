@@ -1,6 +1,6 @@
 import { useTheme } from "@/context/theme-provider";
 import { useDateLocale } from "@/hooks/use-date-locale";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { Threshold } from "@/types/graph";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { useCallback, useEffect, useMemo } from "react";
@@ -26,7 +26,7 @@ export function ThresholdBarGraph({
   data,
 }: ThresholdBarGraphProps) {
   const displayName = name || data[0]?.name || "";
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
 

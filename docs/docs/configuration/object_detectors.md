@@ -9,7 +9,7 @@ import CommunityBadge from '@site/src/components/CommunityBadge';
 
 :::info
 
-Frigate supports multiple different detectors that work on different types of hardware:
+SecureVu supports multiple different detectors that work on different types of hardware:
 
 **Most Hardware**
 
@@ -21,7 +21,7 @@ Frigate supports multiple different detectors that work on different types of ha
 **AMD**
 
 - [ROCm](#amdrocm-gpu-detector): ROCm can run on AMD Discrete GPUs to provide efficient object detection.
-- [ONNX](#onnx): ROCm will automatically be detected and used as a detector in the `-rocm` Frigate image when a supported ONNX model is configured.
+- [ONNX](#onnx): ROCm will automatically be detected and used as a detector in the `-rocm` SecureVu image when a supported ONNX model is configured.
 
 **Apple Silicon**
 
@@ -30,16 +30,16 @@ Frigate supports multiple different detectors that work on different types of ha
 **Intel**
 
 - [OpenVino](#openvino-detector): OpenVino can run on Intel Arc GPUs, Intel integrated GPUs, and Intel CPUs to provide efficient object detection.
-- [ONNX](#onnx): OpenVINO will automatically be detected and used as a detector in the default Frigate image when a supported ONNX model is configured.
+- [ONNX](#onnx): OpenVINO will automatically be detected and used as a detector in the default SecureVu image when a supported ONNX model is configured.
 
 **Nvidia GPU**
 
-- [ONNX](#onnx): Nvidia GPUs will automatically be detected and used as a detector in the `-tensorrt` Frigate image when a supported ONNX model is configured.
+- [ONNX](#onnx): Nvidia GPUs will automatically be detected and used as a detector in the `-tensorrt` SecureVu image when a supported ONNX model is configured.
 
 **Nvidia Jetson** <CommunityBadge />
 
 - [TensortRT](#nvidia-tensorrt-detector): TensorRT can run on Jetson devices, using one of many default models.
-- [ONNX](#onnx): TensorRT will automatically be detected and used as a detector in the `-tensorrt-jp6` Frigate image when a supported ONNX model is configured.
+- [ONNX](#onnx): TensorRT will automatically be detected and used as a detector in the `-tensorrt-jp6` SecureVu image when a supported ONNX model is configured.
 
 **Rockchip** <CommunityBadge />
 
@@ -70,7 +70,7 @@ This does not affect using hardware for accelerating other tasks such as [semant
 
 # Officially Supported Detectors
 
-Frigate provides a number of builtin detector types. By default, Frigate will use a single CPU detector. Other detectors may require additional configuration as described below. When using multiple detectors they will run in dedicated processes, but pull from a common queue of detection requests from across all cameras.
+SecureVu provides a number of builtin detector types. By default, SecureVu will use a single CPU detector. Other detectors may require additional configuration as described below. When using multiple detectors they will run in dedicated processes, but pull from a common queue of detection requests from across all cameras.
 
 ## Edge TPU Detector
 
@@ -107,7 +107,7 @@ detectors:
 
 ### Native Coral (Dev Board)
 
-_warning: may have [compatibility issues](https://github.com/blakeblackshear/frigate/issues/1706) after `v0.9.x`_
+_warning: may have [compatibility issues](https://github.com/SecureCorp-Mexico/SecureVu/issues/1706) after `v0.9.x`_
 
 ```yaml
 detectors:
@@ -166,7 +166,7 @@ YOLOv9 models that are compiled for TensorFlow Lite and properly quantized are s
 
 :::tip
 
-**Frigate+ Users:** Follow the [instructions](/integrations/plus#use-models) to set a model ID in your config file.
+**SecureVu+ Users:** Follow the [instructions](/integrations/plus#use-models) to set a model ID in your config file.
 
 :::
 
@@ -199,7 +199,7 @@ Note that due to hardware limitations of the Coral, the labelmap is a subset of 
 
 This detector is available for use with both Hailo-8 and Hailo-8L AI Acceleration Modules. The integration automatically detects your hardware architecture via the Hailo CLI and selects the appropriate default model if no custom model is specified.
 
-See the [installation docs](../frigate/installation.md#hailo-8l) for information on configuring the Hailo hardware.
+See the [installation docs](../securevu/installation.md#hailo-8l) for information on configuring the Hailo hardware.
 
 ### Configuration
 
@@ -365,11 +365,11 @@ model:
 
 #### YOLOX
 
-This detector also supports YOLOX. Frigate does not come with any YOLOX models preloaded, so you will need to supply your own models.
+This detector also supports YOLOX. SecureVu does not come with any YOLOX models preloaded, so you will need to supply your own models.
 
 #### YOLO-NAS
 
-[YOLO-NAS](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md) models are supported, but not included by default. See [the models section](#downloading-yolo-nas-model) for more information on downloading the YOLO-NAS model for use in Frigate.
+[YOLO-NAS](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md) models are supported, but not included by default. See [the models section](#downloading-yolo-nas-model) for more information on downloading the YOLO-NAS model for use in SecureVu.
 
 <details>
   <summary>YOLO-NAS Setup & Config</summary>
@@ -411,7 +411,7 @@ The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv
 
 :::warning
 
-If you are using a Frigate+ model, you should not define any of the below `model` parameters in your config except for `path`. See [the Frigate+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
+If you are using a SecureVu+ model, you should not define any of the below `model` parameters in your config except for `path`. See [the SecureVu+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
 
 :::
 
@@ -439,7 +439,7 @@ Note that the labelmap uses a subset of the complete COCO label set that has onl
 
 #### RF-DETR
 
-[RF-DETR](https://github.com/roboflow/rf-detr) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-rf-detr-model) for more informatoin on downloading the RF-DETR model for use in Frigate.
+[RF-DETR](https://github.com/roboflow/rf-detr) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-rf-detr-model) for more informatoin on downloading the RF-DETR model for use in SecureVu.
 
 :::warning
 
@@ -471,7 +471,7 @@ model:
 
 #### D-FINE
 
-[D-FINE](https://github.com/Peterande/D-FINE) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-d-fine-model) for more information on downloading the D-FINE model for use in Frigate.
+[D-FINE](https://github.com/Peterande/D-FINE) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-d-fine-model) for more information on downloading the D-FINE model for use in SecureVu.
 
 :::warning
 
@@ -510,8 +510,8 @@ The NPU in Apple Silicon can't be accessed from within a container, so the [Appl
 
 ### Setup
 
-1. Setup the [Apple Silicon detector client](https://github.com/frigate-nvr/apple-silicon-detector) and run the client
-2. Configure the detector in Frigate and startup Frigate
+1. Setup the [Apple Silicon detector client](https://github.com/securevu-nvr/apple-silicon-detector) and run the client
+2. Configure the detector in SecureVu and startup SecureVu
 
 ### Configuration
 
@@ -534,11 +534,11 @@ YOLOv3, YOLOv4, YOLOv7, and [YOLOv9](https://github.com/WongKinYiu/yolov9) model
 
 :::tip
 
-The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv9 models, but may support other YOLO model architectures as well. See [the models section](#downloading-yolo-models) for more information on downloading YOLO models for use in Frigate.
+The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv9 models, but may support other YOLO model architectures as well. See [the models section](#downloading-yolo-models) for more information on downloading YOLO models for use in SecureVu.
 
 :::
 
-When Frigate is started with the following config it will connect to the detector client and transfer the model automatically:
+When SecureVu is started with the following config it will connect to the detector client and transfer the model automatically:
 
 ```yaml
 detectors:
@@ -566,7 +566,7 @@ Support for AMD GPUs is provided using the [ONNX detector](#ONNX). In order to u
 
 ### Docker settings for GPU access
 
-ROCm needs access to the `/dev/kfd` and `/dev/dri` devices. When docker or frigate is not run under root then also `video` (and possibly `render` and `ssl/_ssl`) groups should be added.
+ROCm needs access to the `/dev/kfd` and `/dev/dri` devices. When docker or securevu is not run under root then also `video` (and possibly `render` and `ssl/_ssl`) groups should be added.
 
 When running docker directly the following flags should be added for device access:
 
@@ -579,7 +579,7 @@ When using Docker Compose:
 
 ```yaml {4-6}
 services:
-  frigate:
+  securevu:
     ...
     devices:
       - /dev/dri
@@ -594,7 +594,7 @@ Your GPU might work just fine without any special configuration but in many case
 
 Also AMD/ROCm does not "officially" support integrated GPUs. It still does work with most of them just fine but requires special settings. One has to configure the `HSA_OVERRIDE_GFX_VERSION` environment variable. See the [ROCm bug report](https://github.com/ROCm/ROCm/issues/1743) for context and examples.
 
-For the rocm frigate build there is some automatic detection:
+For the rocm securevu build there is some automatic detection:
 
 - gfx1031 -> 10.3.0
 - gfx1103 -> 11.0.0
@@ -610,7 +610,7 @@ When using Docker Compose:
 
 ```yaml {4-5}
 services:
-  frigate:
+  securevu:
     ...
     environment:
       HSA_OVERRIDE_GFX_VERSION: "10.0.0"
@@ -618,16 +618,16 @@ services:
 
 Figuring out what version you need can be complicated as you can't tell the chipset name and driver from the AMD brand name.
 
-- first make sure that rocm environment is running properly by running `/opt/rocm/bin/rocminfo` in the frigate container -- it should list both the CPU and the GPU with their properties
+- first make sure that rocm environment is running properly by running `/opt/rocm/bin/rocminfo` in the securevu container -- it should list both the CPU and the GPU with their properties
 - find the chipset version you have (gfxNNN) from the output of the `rocminfo` (see below)
 - use a search engine to query what `HSA_OVERRIDE_GFX_VERSION` you need for the given gfx name ("gfxNNN ROCm HSA_OVERRIDE_GFX_VERSION")
 - override the `HSA_OVERRIDE_GFX_VERSION` with relevant value
-- if things are not working check the frigate docker logs
+- if things are not working check the securevu docker logs
 
 #### Figuring out if AMD/ROCm is working and found your GPU
 
 ```bash
-$ docker exec -it frigate /opt/rocm/bin/rocminfo
+$ docker exec -it securevu /opt/rocm/bin/rocminfo
 ```
 
 #### Figuring out your AMD GPU chipset version:
@@ -635,7 +635,7 @@ $ docker exec -it frigate /opt/rocm/bin/rocminfo
 We unset the `HSA_OVERRIDE_GFX_VERSION` to prevent an existing override from messing up the result:
 
 ```bash
-$ docker exec -it frigate /bin/bash -c '(unset HSA_OVERRIDE_GFX_VERSION && /opt/rocm/bin/rocminfo |grep gfx)'
+$ docker exec -it securevu /bin/bash -c '(unset HSA_OVERRIDE_GFX_VERSION && /opt/rocm/bin/rocminfo |grep gfx)'
 ```
 
 ### ROCm Supported Models
@@ -645,7 +645,7 @@ $ docker exec -it frigate /bin/bash -c '(unset HSA_OVERRIDE_GFX_VERSION && /opt/
 The AMD GPU kernel is known problematic especially when converting models to mxr format. The recommended approach is:
 
 1. Disable object detection in the config.
-2. Startup Frigate with the onnx detector configured, the main object detection model will be converted to mxr format and cached in the config directory.
+2. Startup SecureVu with the onnx detector configured, the main object detection model will be converted to mxr format and cached in the config directory.
 3. Once this is finished as indicated by the logs, enable object detection in the UI and confirm that it is working correctly.
 4. Re-enable object detection in the config.
 
@@ -658,21 +658,21 @@ See [ONNX supported models](#supported-models) for supported models, there are s
 
 ## ONNX
 
-ONNX is an open format for building machine learning models, Frigate supports running ONNX models on CPU, OpenVINO, ROCm, and TensorRT. On startup Frigate will automatically try to use a GPU if one is available.
+ONNX is an open format for building machine learning models, SecureVu supports running ONNX models on CPU, OpenVINO, ROCm, and TensorRT. On startup SecureVu will automatically try to use a GPU if one is available.
 
 :::info
 
 If the correct build is used for your GPU then the GPU will be detected and used automatically.
 
 - **AMD**
-  - ROCm will automatically be detected and used with the ONNX detector in the `-rocm` Frigate image.
+  - ROCm will automatically be detected and used with the ONNX detector in the `-rocm` SecureVu image.
 
 - **Intel**
-  - OpenVINO will automatically be detected and used with the ONNX detector in the default Frigate image.
+  - OpenVINO will automatically be detected and used with the ONNX detector in the default SecureVu image.
 
 - **Nvidia**
-  - Nvidia GPUs will automatically be detected and used with the ONNX detector in the `-tensorrt` Frigate image.
-  - Jetson devices will automatically be detected and used with the ONNX detector in the `-tensorrt-jp6` Frigate image.
+  - Nvidia GPUs will automatically be detected and used with the ONNX detector in the `-tensorrt` SecureVu image.
+  - Jetson devices will automatically be detected and used with the ONNX detector in the `-tensorrt-jp6` SecureVu image.
 
 :::
 
@@ -704,14 +704,14 @@ There is no default model provided, the following formats are supported:
 
 #### YOLO-NAS
 
-[YOLO-NAS](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md) models are supported, but not included by default. See [the models section](#downloading-yolo-nas-model) for more information on downloading the YOLO-NAS model for use in Frigate.
+[YOLO-NAS](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md) models are supported, but not included by default. See [the models section](#downloading-yolo-nas-model) for more information on downloading the YOLO-NAS model for use in SecureVu.
 
 <details>
   <summary>YOLO-NAS Setup & Config</summary>
 
 :::warning
 
-If you are using a Frigate+ YOLO-NAS model, you should not define any of the below `model` parameters in your config except for `path`. See [the Frigate+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
+If you are using a SecureVu+ YOLO-NAS model, you should not define any of the below `model` parameters in your config except for `path`. See [the SecureVu+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
 
 :::
 
@@ -740,7 +740,7 @@ YOLOv3, YOLOv4, YOLOv7, and [YOLOv9](https://github.com/WongKinYiu/yolov9) model
 
 :::tip
 
-The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv9 models, but may support other YOLO model architectures as well. See [the models section](#downloading-yolo-models) for more information on downloading YOLO models for use in Frigate.
+The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv9 models, but may support other YOLO model architectures as well. See [the models section](#downloading-yolo-models) for more information on downloading YOLO models for use in SecureVu.
 
 :::
 
@@ -749,7 +749,7 @@ The YOLO detector has been designed to support YOLOv3, YOLOv4, YOLOv7, and YOLOv
 
 :::warning
 
-If you are using a Frigate+ model, you should not define any of the below `model` parameters in your config except for `path`. See [the Frigate+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
+If you are using a SecureVu+ model, you should not define any of the below `model` parameters in your config except for `path`. See [the SecureVu+ model docs](/plus/first_model#step-3-set-your-model-id-in-the-config) for more information on setting up your model.
 
 :::
 
@@ -776,7 +776,7 @@ Note that the labelmap uses a subset of the complete COCO label set that has onl
 
 #### YOLOx
 
-[YOLOx](https://github.com/Megvii-BaseDetection/YOLOX) models are supported, but not included by default. See [the models section](#downloading-yolo-models) for more information on downloading the YOLOx model for use in Frigate.
+[YOLOx](https://github.com/Megvii-BaseDetection/YOLOX) models are supported, but not included by default. See [the models section](#downloading-yolo-models) for more information on downloading the YOLOx model for use in SecureVu.
 
 <details>
   <summary>YOLOx Setup & Config</summary>
@@ -804,7 +804,7 @@ Note that the labelmap uses a subset of the complete COCO label set that has onl
 
 #### RF-DETR
 
-[RF-DETR](https://github.com/roboflow/rf-detr) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-rf-detr-model) for more information on downloading the RF-DETR model for use in Frigate.
+[RF-DETR](https://github.com/roboflow/rf-detr) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-rf-detr-model) for more information on downloading the RF-DETR model for use in SecureVu.
 
 <details>
   <summary>RF-DETR Setup & Config</summary>
@@ -829,7 +829,7 @@ model:
 
 #### D-FINE
 
-[D-FINE](https://github.com/Peterande/D-FINE) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-d-fine-model) for more information on downloading the D-FINE model for use in Frigate.
+[D-FINE](https://github.com/Peterande/D-FINE) is a DETR based model. The ONNX exported models are supported, but not included by default. See [the models section](#downloading-d-fine-model) for more information on downloading the D-FINE model for use in SecureVu.
 
 <details>
   <summary>D-FINE Setup & Config</summary>
@@ -886,13 +886,13 @@ When using CPU detectors, you can add one CPU detector per camera. Adding more d
 
 ## Deepstack / CodeProject.AI Server Detector
 
-The Deepstack / CodeProject.AI Server detector for Frigate allows you to integrate Deepstack and CodeProject.AI object detection capabilities into Frigate. CodeProject.AI and DeepStack are open-source AI platforms that can be run on various devices such as the Raspberry Pi, Nvidia Jetson, and other compatible hardware. It is important to note that the integration is performed over the network, so the inference times may not be as fast as native Frigate detectors, but it still provides an efficient and reliable solution for object detection and tracking.
+The Deepstack / CodeProject.AI Server detector for SecureVu allows you to integrate Deepstack and CodeProject.AI object detection capabilities into SecureVu. CodeProject.AI and DeepStack are open-source AI platforms that can be run on various devices such as the Raspberry Pi, Nvidia Jetson, and other compatible hardware. It is important to note that the integration is performed over the network, so the inference times may not be as fast as native SecureVu detectors, but it still provides an efficient and reliable solution for object detection and tracking.
 
 ### Setup
 
-To get started with CodeProject.AI, visit their [official website](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way) to follow the instructions to download and install the AI server on your preferred device. Detailed setup instructions for CodeProject.AI are outside the scope of the Frigate documentation.
+To get started with CodeProject.AI, visit their [official website](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way) to follow the instructions to download and install the AI server on your preferred device. Detailed setup instructions for CodeProject.AI are outside the scope of the SecureVu documentation.
 
-To integrate CodeProject.AI into Frigate, you'll need to make the following changes to your Frigate configuration file:
+To integrate CodeProject.AI into SecureVu, you'll need to make the following changes to your SecureVu configuration file:
 
 ```yaml
 detectors:
@@ -904,15 +904,15 @@ detectors:
 
 Replace `<your_codeproject_ai_server_ip>` and `<port>` with the IP address and port of your CodeProject.AI server.
 
-To verify that the integration is working correctly, start Frigate and observe the logs for any error messages related to CodeProject.AI. Additionally, you can check the Frigate web interface to see if the objects detected by CodeProject.AI are being displayed and tracked properly.
+To verify that the integration is working correctly, start SecureVu and observe the logs for any error messages related to CodeProject.AI. Additionally, you can check the SecureVu web interface to see if the objects detected by CodeProject.AI are being displayed and tracked properly.
 
 # Community Supported Detectors
 
 ## MemryX MX3
 
-This detector is available for use with the MemryX MX3 accelerator M.2 module. Frigate supports the MX3 on compatible hardware platforms, providing efficient and high-performance object detection.
+This detector is available for use with the MemryX MX3 accelerator M.2 module. SecureVu supports the MX3 on compatible hardware platforms, providing efficient and high-performance object detection.
 
-See the [installation docs](../frigate/installation.md#memryx-mx3) for information on configuring the MemryX hardware.
+See the [installation docs](../securevu/installation.md#memryx-mx3) for information on configuring the MemryX hardware.
 
 To configure a MemryX detector, simply set the `type` attribute to `memryx` and follow the configuration guide below.
 
@@ -1106,11 +1106,11 @@ Nvidia Jetson devices may be used for object detection using the TensorRT librar
 
 The model used for TensorRT must be preprocessed on the same hardware platform that they will run on. This means that each user must run additional setup to generate a model file for the TensorRT library. A script is included that will build several common models.
 
-The Frigate image will generate model files during startup if the specified model is not found. Processed models are stored in the `/config/model_cache` folder. Typically the `/config` path is mapped to a directory on the host already and the `model_cache` does not need to be mapped separately unless the user wants to store it in a different location on the host.
+The SecureVu image will generate model files during startup if the specified model is not found. Processed models are stored in the `/config/model_cache` folder. Typically the `/config` path is mapped to a directory on the host already and the `model_cache` does not need to be mapped separately unless the user wants to store it in a different location on the host.
 
-By default, no models will be generated, but this can be overridden by specifying the `YOLO_MODELS` environment variable in Docker. One or more models may be listed in a comma-separated format, and each one will be generated. Models will only be generated if the corresponding `{model}.trt` file is not present in the `model_cache` folder, so you can force a model to be regenerated by deleting it from your Frigate data folder.
+By default, no models will be generated, but this can be overridden by specifying the `YOLO_MODELS` environment variable in Docker. One or more models may be listed in a comma-separated format, and each one will be generated. Models will only be generated if the corresponding `{model}.trt` file is not present in the `model_cache` folder, so you can force a model to be regenerated by deleting it from your SecureVu data folder.
 
-If you have a Jetson device with DLAs (Xavier or Orin), you can generate a model that will run on the DLA by appending `-dla` to your model name, e.g. specify `YOLO_MODELS=yolov7-320-dla`. The model will run on DLA0 (Frigate does not currently support DLA1). DLA-incompatible layers will fall back to running on the GPU.
+If you have a Jetson device with DLAs (Xavier or Orin), you can generate a model that will run on the DLA by appending `-dla` to your model name, e.g. specify `YOLO_MODELS=yolov7-320-dla`. The model will run on DLA0 (SecureVu does not currently support DLA1). DLA-incompatible layers will fall back to running on the GPU.
 
 If your GPU does not support FP16 operations, you can pass the environment variable `USE_FP16=False` to disable it.
 
@@ -1151,7 +1151,7 @@ yolov7x-320
 An example `docker-compose.yml` fragment that converts the `yolov4-608` and `yolov7x-640` models would look something like this:
 
 ```yml
-frigate:
+securevu:
   environment:
     - YOLO_MODELS=yolov7-320,yolov7x-640
     - USE_FP16=false
@@ -1190,7 +1190,7 @@ This implementation uses the [Synaptics model conversion](https://synaptics-syna
 
 This implementation is based on sdk `v1.5.0`.
 
-See the [installation docs](../frigate/installation.md#synaptics) for information on configuring the SL-series NPU hardware.
+See the [installation docs](../securevu/installation.md#synaptics) for information on configuring the SL-series NPU hardware.
 
 ### Configuration
 
@@ -1245,7 +1245,7 @@ detectors:
 
 ### Prerequisites
 
-Make sure to follow the [Rockchip specific installation instructions](/frigate/installation#rockchip-platform).
+Make sure to follow the [Rockchip specific installation instructions](/securevu/installation#rockchip-platform).
 
 :::tip
 
@@ -1279,11 +1279,11 @@ The inference time was determined on a rk3588 with 3 NPU cores.
 | deci-fp16-yolonas_s   | 24         | 25                   |
 | deci-fp16-yolonas_m   | 62         | 35                   |
 | deci-fp16-yolonas_l   | 81         | 45                   |
-| frigate-fp16-yolov9-t | 6          | 35                   |
+| securevu-fp16-yolov9-t | 6          | 35                   |
 | rock-i8-yolox_nano    | 3          | 14                   |
 | rock-i8_yolox_tiny    | 6          | 18                   |
 
-- All models are automatically downloaded and stored in the folder `config/model_cache/rknn_cache`. After upgrading Frigate, you should remove older models to free up space.
+- All models are automatically downloaded and stored in the folder `config/model_cache/rknn_cache`. After upgrading SecureVu, you should remove older models to free up space.
 - You can also provide your own `.rknn` model. You should not save your own models in the `rknn_cache` folder, store them directly in the `model_cache` folder or another subfolder. To convert a model to `.rknn` format see the `rknn-toolkit2` (requires a x86 machine). Note, that there is only post-processing for the supported models.
 
 #### YOLO-NAS
@@ -1317,13 +1317,13 @@ The pre-trained YOLO-NAS weights from DeciAI are subject to their license and ca
 model: # required
   # name of model (will be automatically downloaded) or path to your own .rknn model file
   # possible values are:
-  # - frigate-fp16-yolov9-t
-  # - frigate-fp16-yolov9-s
-  # - frigate-fp16-yolov9-m
-  # - frigate-fp16-yolov9-c
-  # - frigate-fp16-yolov9-e
+  # - securevu-fp16-yolov9-t
+  # - securevu-fp16-yolov9-s
+  # - securevu-fp16-yolov9-m
+  # - securevu-fp16-yolov9-c
+  # - securevu-fp16-yolov9-e
   # your yolo_model.rknn
-  path: frigate-fp16-yolov9-t
+  path: securevu-fp16-yolov9-t
   model_type: yolo-generic
   width: 320
   height: 320
@@ -1356,7 +1356,7 @@ To convert a onnx model to the rknn format using the [rknn-toolkit2](https://git
 
 - Place one ore more models in onnx format in the directory `config/model_cache/rknn_cache/onnx` on your docker host (this might require `sudo` privileges).
 - Save the configuration file under `config/conv2rknn.yaml` (see below for details).
-- Run `docker exec <frigate_container_id> python3 /opt/conv2rknn.py`. If the conversion was successful, the rknn models will be placed in `config/model_cache/rknn_cache`.
+- Run `docker exec <securevu_container_id> python3 /opt/conv2rknn.py`. If the conversion was successful, the rknn models will be placed in `config/model_cache/rknn_cache`.
 
 This is an example configuration file that you need to adjust to your specific onnx model:
 
@@ -1381,7 +1381,7 @@ Explanation of the paramters:
   - `input_basename`: the basename of the input model (e.g. "my_model" if the input model is calles "my_model.onnx")
   - `soc`: the SoC this model was build for (e.g. "rk3588")
   - `tk_version`: Version of `rknn-toolkit2` (e.g. "2.3.0")
-  - **example**: Specifying `output_name = "frigate-{quant}-{input_basename}-{soc}-v{tk_version}"` could result in a model called `frigate-i8-my_model-rk3588-v2.3.0.rknn`.
+  - **example**: Specifying `output_name = "securevu-{quant}-{input_basename}-{soc}-v{tk_version}"` could result in a model called `securevu-i8-my_model-rk3588-v2.3.0.rknn`.
 - `config`: Configuration passed to `rknn-toolkit2` for model conversion. For an explanation of all available parameters have a look at section "2.2. Model configuration" of [this manual](https://github.com/MarcA711/rknn-toolkit2/releases/download/v2.3.2/03_Rockchip_RKNPU_API_Reference_RKNN_Toolkit2_V2.3.2_EN.pdf).
 
 ## DeGirum
@@ -1433,9 +1433,9 @@ model:
 
 #### Local Inference
 
-It is also possible to eliminate the need for an AI server and run the hardware directly. The benefit of this approach is that you eliminate any bottlenecks that occur when transferring prediction results from the AI server docker container to the frigate one. However, the method of implementing local inference is different for every device and hardware combination, so it's usually more trouble than it's worth. A general guideline to achieve this would be:
+It is also possible to eliminate the need for an AI server and run the hardware directly. The benefit of this approach is that you eliminate any bottlenecks that occur when transferring prediction results from the AI server docker container to the securevu one. However, the method of implementing local inference is different for every device and hardware combination, so it's usually more trouble than it's worth. A general guideline to achieve this would be:
 
-1. Ensuring that the frigate docker container has the runtime you want to use. So for instance, running `@local` for Hailo means making sure the container you're using has the Hailo runtime installed.
+1. Ensuring that the securevu docker container has the runtime you want to use. So for instance, running `@local` for Hailo means making sure the container you're using has the Hailo runtime installed.
 2. To double check the runtime is detected by the DeGirum detector, make sure the `degirum sys-info` command properly shows whatever runtimes you mean to install.
 3. Create a DeGirum detector in your `config.yml` file.
 
@@ -1459,7 +1459,7 @@ model:
 
 #### AI Hub Cloud Inference
 
-If you do not possess whatever hardware you want to run, there's also the option to run cloud inferences. Do note that your detection fps might need to be lowered as network latency does significantly slow down this method of detection. For use with Frigate, we highly recommend using a local AI server as described above. To set up cloud inferences,
+If you do not possess whatever hardware you want to run, there's also the option to run cloud inferences. Do note that your detection fps might need to be lowered as network latency does significantly slow down this method of detection. For use with SecureVu, we highly recommend using a local AI server as described above. To set up cloud inferences,
 
 1. Sign up at [DeGirum's AI Hub](https://hub.degirum.com).
 2. Get an access token.
@@ -1492,7 +1492,7 @@ Hardware accelerated object detection is supported on the following SoCs:
 
 This implementation uses the [AXera Pulsar2 Toolchain](https://huggingface.co/AXERA-TECH/Pulsar2).
 
-See the [installation docs](../frigate/installation.md#axera) for information on configuring the AXEngine hardware.
+See the [installation docs](../securevu/installation.md#axera) for information on configuring the AXEngine hardware.
 
 ### Configuration
 
@@ -1510,7 +1510,7 @@ detectors:
     type: axengine
 
 model:
-  path: frigate-yolov9-tiny
+  path: securevu-yolov9-tiny
   model_type: yolo-generic
   width: 320
   height: 320
@@ -1521,7 +1521,7 @@ model:
 
 # Models
 
-Some model types are not included in Frigate by default.
+Some model types are not included in SecureVu by default.
 
 ## Downloading Models
 
@@ -1574,7 +1574,7 @@ EOF
 
 ### Downloading YOLO-NAS Model
 
-You can build and download a compatible model with pre-trained weights using [this notebook](https://github.com/blakeblackshear/frigate/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/blakeblackshear/frigate/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb) which can be run directly in [Google Colab](https://colab.research.google.com/github/blakeblackshear/frigate/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb).
+You can build and download a compatible model with pre-trained weights using [this notebook](https://github.com/SecureCorp-Mexico/SecureVu/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/blakeblackshear/securevu/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb) which can be run directly in [Google Colab](https://colab.research.google.com/github/blakeblackshear/securevu/blob/dev/notebooks/YOLO_NAS_Pretrained_Export.ipynb).
 
 :::warning
 
@@ -1582,7 +1582,7 @@ The pre-trained YOLO-NAS weights from DeciAI are subject to their license and ca
 
 :::
 
-The input image size in this notebook is set to 320x320. This results in lower CPU usage and faster inference times without impacting performance in most cases due to the way Frigate crops video frames to areas of interest before running detection. The notebook and config can be updated to 640x640 if desired.
+The input image size in this notebook is set to 320x320. This results in lower CPU usage and faster inference times without impacting performance in most cases due to the way SecureVu crops video frames to areas of interest before running detection. The notebook and config can be updated to 640x640 if desired.
 
 ### Downloading YOLO Models
 
@@ -1603,7 +1603,7 @@ python3 yolo_to_onnx.py -m yolov7-320
 
 #### YOLOv9 for Google Coral Support
 
-[Download the model](https://github.com/dbro/frigate-detector-edgetpu-yolo9/releases/download/v1.0/yolov9-s-relu6-best_320_int8_edgetpu.tflite), bind mount the file into the container, and provide the path with `model.path`. Note that the linked model requires a 17-label [labelmap file](https://raw.githubusercontent.com/dbro/frigate-detector-edgetpu-yolo9/refs/heads/main/labels-coco17.txt) that includes only 17 COCO classes.
+[Download the model](https://github.com/dbro/securevu-detector-edgetpu-yolo9/releases/download/v1.0/yolov9-s-relu6-best_320_int8_edgetpu.tflite), bind mount the file into the container, and provide the path with `model.path`. Note that the linked model requires a 17-label [labelmap file](https://raw.githubusercontent.com/dbro/securevu-detector-edgetpu-yolo9/refs/heads/main/labels-coco17.txt) that includes only 17 COCO classes.
 
 #### YOLOv9 for other detectors
 

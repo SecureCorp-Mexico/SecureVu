@@ -1,8 +1,8 @@
 {
   "noPreviewFound": "Nenhuma pré-visualização encontrada",
   "noPreviewFoundFor": "Nenhuma pré-visualização encontrada para {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Submeter esta imagem para Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Submeter esta imagem para SecureVu+?",
     "submit": "Submeter"
   },
   "streamOffline": {
@@ -42,10 +42,10 @@
   "livePlayerRequiredIOSVersion": "É necessário o iOS 17.1 ou superior para este tipo de transmissão ao vivo.",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Imagem submetida com sucesso para Frigate+"
+      "submittedSecureVuPlus": "Imagem submetida com sucesso para SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Não foi possível submeter a imagem para Frigate+"
+      "submitSecureVuPlusFailed": "Não foi possível submeter a imagem para SecureVu+"
     }
   }
 }

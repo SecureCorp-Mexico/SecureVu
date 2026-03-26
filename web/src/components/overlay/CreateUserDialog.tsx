@@ -36,7 +36,7 @@ import { LuCheck, LuX, LuEye, LuEyeOff } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
 import { isDesktop, isMobile } from "react-device-detect";
 import { cn } from "@/lib/utils";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import {
   calculatePasswordStrength,
   getPasswordRequirements,
@@ -62,7 +62,7 @@ export default function CreateUserDialog({
   onCreate,
   onCancel,
 }: CreateUserOverlayProps) {
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const { t } = useTranslation(["views/settings"]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPasswordVisible, setShowPasswordVisible] =

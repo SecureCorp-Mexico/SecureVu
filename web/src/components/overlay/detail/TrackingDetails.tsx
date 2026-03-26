@@ -5,7 +5,7 @@ import { useFullscreen } from "@/hooks/use-fullscreen";
 import { Event } from "@/types/event";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { TrackingDetailsSequence } from "@/types/timeline";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { getIconForLabel } from "@/utils/iconUtil";
 import { LuCircle, LuFolderX } from "react-icons/lu";
@@ -99,7 +99,7 @@ export function TrackingDetails({
     },
   );
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   // Fetch recording segments for the event's time range to handle motion-only gaps.
   // Use the source offset (stable per event) so recordings don't refetch on every
@@ -673,7 +673,7 @@ export function TrackingDetails({
                 hotKeys={false}
                 supportsFullscreen={supportsFullScreen}
                 fullscreen={fullscreen}
-                frigateControls={true}
+                securevuControls={true}
                 onTimeUpdate={handleTimeUpdate}
                 onSeekToTime={handleSeekToTime}
                 onUploadFrame={onUploadFrameToPlus}
@@ -896,7 +896,7 @@ function LifecycleIconRow({
   isTimelineActive,
 }: LifecycleIconRowProps) {
   const { t } = useTranslation(["views/explore", "components/player"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const isAdmin = useIsAdmin();
@@ -1142,7 +1142,7 @@ function LifecycleIconRow({
 
                           if (resp && resp.status == 200) {
                             toast.success(
-                              t("toast.success.submittedFrigatePlus", {
+                              t("toast.success.submittedSecureVuPlus", {
                                 ns: "components/player",
                               }),
                               {
@@ -1151,7 +1151,7 @@ function LifecycleIconRow({
                             );
                           } else {
                             toast.success(
-                              t("toast.error.submitFrigatePlusFailed", {
+                              t("toast.error.submitSecureVuPlusFailed", {
                                 ns: "components/player",
                               }),
                               {

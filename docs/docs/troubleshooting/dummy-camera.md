@@ -3,11 +3,11 @@ id: dummy-camera
 title: Analyzing Object Detection
 ---
 
-Frigate provides several tools for investigating object detection and tracking behavior: reviewing recorded detections through the UI, using the built-in Debug Replay feature, and manually setting up a dummy camera for advanced scenarios.
+SecureVu provides several tools for investigating object detection and tracking behavior: reviewing recorded detections through the UI, using the built-in Debug Replay feature, and manually setting up a dummy camera for advanced scenarios.
 
 ## Reviewing Detections in the UI
 
-Before setting up a replay, you can often diagnose detection issues by reviewing existing recordings directly in the Frigate UI.
+Before setting up a replay, you can often diagnose detection issues by reviewing existing recordings directly in the SecureVu UI.
 
 ### Detail View (History)
 
@@ -35,7 +35,7 @@ The per-clip variation is typically quite low and is mostly an artifact of keyfr
 
 ## Debug Replay
 
-Debug Replay lets you re-run Frigate's detection pipeline against a section of recorded video without manually configuring a dummy camera. It automatically extracts the recording, creates a temporary camera with the same detection settings as the original, and loops the clip through the pipeline so you can observe detections in real time.
+Debug Replay lets you re-run SecureVu's detection pipeline against a section of recorded video without manually configuring a dummy camera. It automatically extracts the recording, creates a temporary camera with the same detection settings as the original, and loops the clip through the pipeline so you can observe detections in real time.
 
 ### When to use
 
@@ -90,13 +90,13 @@ cameras:
 1. Export or copy the clip you want to replay to the Frigate host (e.g., `/media/frigate/` or `debug/clips/`). Depending on what you are looking to debug, it is often helpful to add some "pre-capture" time (where the tracked object is not yet visible) to the clip when exporting.
 2. Add the temporary camera to `config/config.yml` (example above). Use a unique name such as `test` or `replay_camera` so it's easy to remove later.
    - If you're debugging a specific camera, copy the settings from that camera (frame rate, model/enrichment settings, zones, etc.) into the temporary camera so the replay closely matches the original environment. Leave `record` and `snapshots` disabled unless you are specifically debugging recording or snapshot behavior.
-3. Restart Frigate.
+3. Restart SecureVu.
 4. Observe the Debug view in the UI and logs as the clip is replayed. Watch detections, zones, or any feature you're looking to debug, and note any errors in the logs to reproduce the issue.
 5. Iterate on camera or enrichment settings (model, fps, zones, filters) and re-check the replay until the behavior is resolved.
 6. Remove the temporary camera from your config after debugging to avoid spurious telemetry or recordings.
 
 ### Troubleshooting
 
-- **No video**: verify the file path is correct and accessible from the Frigate process/container.
+- **No video**: verify the file path is correct and accessible from the SecureVu process/container.
 - **FFmpeg errors**: check the log output and adjust `input_args` for your file format. You may also need to disable hardware acceleration (`hwaccel_args: ""`) for the dummy camera.
 - **No detections**: confirm the camera `roles` include `detect` and that the model/detector configuration is enabled.

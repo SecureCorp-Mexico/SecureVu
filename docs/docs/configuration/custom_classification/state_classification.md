@@ -3,7 +3,7 @@ id: state_classification
 title: State Classification
 ---
 
-State classification allows you to train a custom MobileNetV2 classification model on a fixed region of your camera frame(s) to determine a current state. The model can be configured to run on a schedule and/or when motion is detected in that region. Classification results are available through the `frigate/<camera_name>/classification/<model_name>` MQTT topic and in Home Assistant sensors via the official Frigate integration.
+State classification allows you to train a custom MobileNetV2 classification model on a fixed region of your camera frame(s) to determine a current state. The model can be configured to run on a schedule and/or when motion is detected in that region. Classification results are available through the `securevu/<camera_name>/classification/<model_name>` MQTT topic and in Home Assistant sensors via the official SecureVu integration.
 
 ## Minimum System Requirements
 
@@ -52,7 +52,7 @@ An optional config, `save_attempts`, can be set as a key under the model name. T
 
 ## Training the model
 
-Creating and training the model is done within the Frigate UI using the `Classification` page. The process consists of three steps:
+Creating and training the model is done within the SecureVu UI using the `Classification` page. The process consists of three steps:
 
 ### Step 1: Name and Define
 
@@ -72,9 +72,9 @@ Once some images are assigned, training will begin automatically.
 
 :::tip Diversity matters far more than volume
 
-Selecting dozens of nearly identical images is one of the fastest ways to degrade model performance. MobileNetV2 can overfit quickly when trained on homogeneous data — the model learns what *that exact moment* looked like rather than what actually defines the state. This often leads to models that work perfectly under the original conditions but become unstable when day turns to night, weather changes, or seasonal lighting shifts. **This is why Frigate does not implement bulk training in the UI.**
+Selecting dozens of nearly identical images is one of the fastest ways to degrade model performance. MobileNetV2 can overfit quickly when trained on homogeneous data — the model learns what *that exact moment* looked like rather than what actually defines the state. This often leads to models that work perfectly under the original conditions but become unstable when day turns to night, weather changes, or seasonal lighting shifts. **This is why SecureVu does not implement bulk training in the UI.**
 
-For more detail, see [Frigate Tip: Best Practices for Training Face and Custom Classification Models](https://github.com/blakeblackshear/frigate/discussions/21374).
+For more detail, see [SecureVu Tip: Best Practices for Training Face and Custom Classification Models](https://github.com/SecureCorp-Mexico/SecureVu/discussions/21374).
 
 :::
 
@@ -90,14 +90,14 @@ For more detail, see [Frigate Tip: Best Practices for Training Face and Custom C
 
 To troubleshoot issues with state classification models, enable debug logging to see detailed information about classification attempts, scores, and state verification.
 
-Enable debug logs for classification models by adding `frigate.data_processing.real_time.custom_classification: debug` to your `logger` configuration. These logs are verbose, so only keep this enabled when necessary. Restart Frigate after this change.
+Enable debug logs for classification models by adding `securevu.data_processing.real_time.custom_classification: debug` to your `logger` configuration. These logs are verbose, so only keep this enabled when necessary. Restart SecureVu after this change.
 
 ```yaml
 logger:
   default: info
   logs:
     # highlight-next-line
-    frigate.data_processing.real_time.custom_classification: debug
+    securevu.data_processing.real_time.custom_classification: debug
 ```
 
 The debug logs will show:

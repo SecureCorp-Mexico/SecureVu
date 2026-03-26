@@ -124,7 +124,7 @@ export function GenericVideoPlayer({
                 currentSource={hlsSource}
                 hotKeys
                 visible
-                frigateControls={false}
+                securevuControls={false}
                 fullscreen={false}
                 supportsFullscreen={false}
                 onPlaying={() => {

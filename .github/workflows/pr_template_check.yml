@@ -93,14 +93,14 @@ jobs:
             const message = [
               '## PR template validation failed',
               '',
-              'This PR was automatically closed because the description does not follow the [pull request template](https://github.com/blakeblackshear/frigate/blob/dev/.github/pull_request_template.md).',
+              'This PR was automatically closed because the description does not follow the [pull request template](https://github.com/SecureCorp-Mexico/SecureVu/blob/dev/.github/pull_request_template.md).',
               '',
               '**Issues found:**',
               ...errors.map((e) => `- ${e}`),
               '',
               'Please update your PR description to include all required sections from the template, then reopen this PR.',
               '',
-              '> If you used an AI tool to generate this PR, please see our [contributing guidelines](https://github.com/blakeblackshear/frigate/blob/dev/CONTRIBUTING.md) for details.',
+              '> If you used an AI tool to generate this PR, please see our [contributing guidelines](https://github.com/SecureCorp-Mexico/SecureVu/blob/dev/CONTRIBUTING.md) for details.',
             ].join('\n');
 
             await github.rest.issues.createComment({

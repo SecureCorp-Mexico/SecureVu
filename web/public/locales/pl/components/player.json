@@ -31,8 +31,8 @@
   },
   "noPreviewFound": "Nie znaleziono podglądu",
   "noPreviewFoundFor": "Nie znaleziono podglądu dla {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Wyślij tę klatkę do Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Wyślij tę klatkę do SecureVu+?",
     "submit": "Wyślij"
   },
   "livePlayerRequiredIOSVersion": "Wymagana wersja iOS 17.1 lub nowsza dla tego typu transmisji na żywo.",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Pomyślnie wysłano klatkę do Frigate+"
+      "submittedSecureVuPlus": "Pomyślnie wysłano klatkę do SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Nie udało się wysłać klatki do Frigate+"
+      "submitSecureVuPlusFailed": "Nie udało się wysłać klatki do SecureVu+"
     }
   }
 }

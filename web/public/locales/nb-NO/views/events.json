@@ -27,9 +27,9 @@
   },
   "allCameras": "Alle kameraer",
   "timeline.aria": "Velg tidslinje",
-  "documentTitle": "Inspeksjon - Frigate",
+  "documentTitle": "Inspeksjon - SecureVu",
   "recordings": {
-    "documentTitle": "Opptak - Frigate"
+    "documentTitle": "Opptak - SecureVu"
   },
   "calendarFilter": {
     "last24Hours": "Siste 24 timer"

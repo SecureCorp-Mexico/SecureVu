@@ -1,6 +1,6 @@
 import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 
 /**
  * Returns true if the current user has access to all cameras.
@@ -9,7 +9,7 @@ import { FrigateConfig } from "@/types/frigateConfig";
  */
 export function useHasFullCameraAccess() {
   const allowedCameras = useAllowedCameras();
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
 

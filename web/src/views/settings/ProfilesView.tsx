@@ -8,7 +8,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { Pencil, Trash2 } from "lucide-react";
 import { LuChevronDown, LuChevronRight, LuPlus } from "react-icons/lu";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { SecureVuConfig } from "@/types/securevuConfig";
 import type { JsonObject } from "@/types/configForm";
 import type { ProfileState, ProfilesApiResponse } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
@@ -67,7 +67,7 @@ export default function ProfilesView({
 }: ProfilesViewProps) {
   const { t } = useTranslation(["views/settings", "common"]);
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
   const { data: profilesData, mutate: updateProfiles } =
     useSWR<ProfilesApiResponse>("profiles");
 

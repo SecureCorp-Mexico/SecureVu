@@ -8,7 +8,7 @@ import {
 } from "react";
 import { useApiHost } from "@/api";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { Recording } from "@/types/record";
 import { Preview } from "@/types/preview";
 import PreviewPlayer, { PreviewController } from "../PreviewPlayer";
@@ -70,7 +70,7 @@ export default function DynamicVideoPlayer({
 }: DynamicVideoPlayerProps) {
   const { t } = useTranslation(["components/player"]);
   const apiHost = useApiHost();
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   // for detail stream context in History
   const {

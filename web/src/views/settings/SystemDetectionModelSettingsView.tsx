@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { SecureVuConfig } from "@/types/securevuConfig";
 import {
   SettingsGroupCard,
   SplitCardRow,
@@ -13,14 +13,14 @@ import {
   SingleSectionPage,
   type SettingsPageProps,
 } from "@/views/settings/SingleSectionPage";
-import FrigatePlusCurrentModelSummary from "@/views/settings/components/FrigatePlusCurrentModelSummary";
+import SecureVuPlusCurrentModelSummary from "@/views/settings/components/SecureVuPlusCurrentModelSummary";
 import { useTranslation } from "react-i18next";
 
 export default function SystemDetectionModelSettingsView(
   props: SettingsPageProps,
 ) {
   const { t } = useTranslation(["config/global", "views/settings"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const [showModelForm, setShowModelForm] = useState(false);
   const navigate = useNavigate();
 
@@ -60,9 +60,9 @@ export default function SystemDetectionModelSettingsView(
               <div className="flex flex-col items-start gap-3">
                 <Button
                   variant="outline"
-                  onClick={() => navigate("/settings?page=frigateplus")}
+                  onClick={() => navigate("/settings?page=securevuplus")}
                 >
-                  {t("detectionModel.plusActive.goToFrigatePlus", {
+                  {t("detectionModel.plusActive.goToSecureVuPlus", {
                     ns: "views/settings",
                   })}
                 </Button>
@@ -81,7 +81,7 @@ export default function SystemDetectionModelSettingsView(
           />
         </SettingsGroupCard>
 
-        <FrigatePlusCurrentModelSummary plusModel={config.model.plus} />
+        <SecureVuPlusCurrentModelSummary plusModel={config.model.plus} />
       </div>
     </div>
   );

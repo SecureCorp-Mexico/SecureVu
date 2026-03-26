@@ -7,7 +7,7 @@ import { type DayButtonProps } from "react-day-picker";
 import { LAST_24_HOURS_KEY } from "@/types/filter";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { cn } from "@/lib/utils";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import useSWR from "swr";
 import { useTimezone } from "@/hooks/use-date-utils";
 
@@ -25,7 +25,7 @@ export default function ReviewActivityCalendar({
   selectedDay,
   onSelect,
 }: ReviewActivityCalendarProps) {
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const timezone = useTimezone(config);
   const [weekStartsOn] = useUserPersistence("weekStartsOn", 0);
 

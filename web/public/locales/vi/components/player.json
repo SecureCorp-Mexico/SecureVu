@@ -32,14 +32,14 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Đã gửi thành công khung hình tới Frigate+"
+      "submittedSecureVuPlus": "Đã gửi thành công khung hình tới SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Không gửi được khung hình tới Frigate+"
+      "submitSecureVuPlusFailed": "Không gửi được khung hình tới SecureVu+"
     }
   },
-  "submitFrigatePlus": {
-    "title": "Gửi khung hình này tới Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Gửi khung hình này tới SecureVu+?",
     "submit": "Gửi"
   },
   "livePlayerRequiredIOSVersion": "Yêu cầu iOS 17.1 trở lên cho loại luồng trực tiếp này.",

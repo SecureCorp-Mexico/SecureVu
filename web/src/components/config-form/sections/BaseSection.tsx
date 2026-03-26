@@ -26,7 +26,7 @@ import {
 import { getSectionValidation } from "../section-validations";
 import { useConfigOverride } from "@/hooks/use-config-override";
 import { useSectionSchema } from "@/hooks/use-config-schema";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { SecureVuConfig } from "@/types/securevuConfig";
 import { Badge } from "@/components/ui/badge";
 import {
   Tooltip,
@@ -273,7 +273,7 @@ export function ConfigSection({
 
   // Fetch config
   const { data: config, mutate: refreshConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   // Get section schema using cached hook
   const sectionSchema = useSectionSchema(sectionPath, effectiveLevel);
@@ -638,7 +638,7 @@ export function ConfigSection({
           t("toast.successRestartRequired", {
             ns: "views/settings",
             defaultValue:
-              "Settings saved successfully. Restart Frigate to apply your changes.",
+              "Settings saved successfully. Restart SecureVu to apply your changes.",
           }),
           {
             action: (

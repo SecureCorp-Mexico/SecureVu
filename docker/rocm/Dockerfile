@@ -39,7 +39,7 @@ RUN apt-get update && \
     apt-get install -qq -y libstdc++-12-dev && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /opt/frigate
+WORKDIR /opt/securevu
 COPY --from=rootfs / /
 
 RUN wget -q https://bootstrap.pypa.io/get-pip.py -O get-pip.py \

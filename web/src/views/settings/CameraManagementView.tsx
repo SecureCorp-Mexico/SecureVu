@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { useTranslation } from "react-i18next";
 import CameraEditForm from "@/components/settings/CameraEditForm";
 import CameraWizardDialog from "@/components/settings/CameraWizardDialog";
@@ -49,7 +49,7 @@ export default function CameraManagementView({
   const { t } = useTranslation(["views/settings"]);
 
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   const [viewMode, setViewMode] = useState<"settings" | "add" | "edit">(
     "settings",
@@ -391,7 +391,7 @@ function CameraConfigEnableSwitch({
 type ProfileCameraEnableSectionProps = {
   profileState: ProfileState;
   cameras: string[];
-  config: FrigateConfig | undefined;
+  config: SecureVuConfig | undefined;
   onConfigChanged: () => Promise<unknown>;
 };
 
@@ -407,7 +407,7 @@ function ProfileCameraEnableSection({
   );
   const [savingCamera, setSavingCamera] = useState<string | null>(null);
   // Optimistic local state: the parsed config API doesn't reflect profile
-  // enabled changes until Frigate restarts, so we track saved values locally.
+  // enabled changes until SecureVu restarts, so we track saved values locally.
   const [localOverrides, setLocalOverrides] = useState<
     Record<string, Record<string, string>>
   >({});

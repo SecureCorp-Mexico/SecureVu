@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import useSWR from "swr";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -71,7 +71,7 @@ export default function ZoneEditPane({
   const { t } = useTranslation(["views/settings"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   const cameras = useMemo(() => {
     if (!config) {
@@ -1003,7 +1003,7 @@ export function ZoneObjectSelector({
   updateLabelFilter,
 }: ZoneObjectSelectorProps) {
   const { t } = useTranslation(["views/settings"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   const attributeLabels = useMemo(() => {
     if (!config) {

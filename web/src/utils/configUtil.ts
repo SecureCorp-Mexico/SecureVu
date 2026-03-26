@@ -20,7 +20,7 @@ import {
   sanitizeOverridesForSection,
 } from "@/components/config-form/sections/section-special-cases";
 import type { RJSFSchema } from "@rjsf/utils";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { SecureVuConfig } from "@/types/securevuConfig";
 import type {
   ConfigSectionData,
   JsonObject,
@@ -81,7 +81,7 @@ export const globalCameraDefaultSections = new Set([
  * back to the top-level (effective) value otherwise.
  */
 export function getBaseCameraSectionValue(
-  config: FrigateConfig | undefined,
+  config: SecureVuConfig | undefined,
   cameraName: string | undefined,
   sectionPath: string,
 ): unknown {
@@ -270,7 +270,7 @@ export function sanitizeSectionData(
 // a properly nested config_data object (e.g. { cameras: { front_door: { detect: value } } }).
 // This ensures the backend's flatten_config_data function can correctly distinguish
 // between path separators (dots in the path) and literal dots in keys
-// (e.g. "frigate.foo.bar" in logger.logs).
+// (e.g. "securevu.foo.bar" in logger.logs).
 export function buildConfigDataForPath(
   path: string,
   value: unknown,
@@ -284,7 +284,7 @@ export function buildConfigDataForPath(
 // requiresRestartForOverrides — determine whether a restart is needed
 // ---------------------------------------------------------------------------
 
-// Check whether the given overrides include fields that require a Frigate
+// Check whether the given overrides include fields that require a SecureVu
 // restart.  When `restartRequired` is `undefined` the caller's default is
 // used; an empty array means "never restart"; otherwise the function checks
 // if any of the listed field paths are present in the overrides object.
@@ -477,7 +477,7 @@ function extractSectionSchema(
 export function prepareSectionSavePayload(opts: {
   pendingDataKey: string;
   pendingData: unknown;
-  config: FrigateConfig;
+  config: SecureVuConfig;
   fullSchema: RJSFSchema;
 }): SectionSavePayload | null {
   const { pendingDataKey, pendingData, config, fullSchema } = opts;

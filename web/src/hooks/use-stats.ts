@@ -1,22 +1,22 @@
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import {
   CameraDetectThreshold,
   CameraFfmpegThreshold,
   InferenceThreshold,
 } from "@/types/graph";
-import { FrigateStats, PotentialProblem } from "@/types/stats";
+import { SecureVuStats, PotentialProblem } from "@/types/stats";
 import { useMemo } from "react";
 import useSWR from "swr";
 import useDeepMemo from "./use-deep-memo";
 import { capitalizeAll, capitalizeFirstLetter } from "@/utils/stringUtil";
 import { isReplayCamera } from "@/utils/cameraUtil";
-import { useFrigateStats } from "@/api/ws";
+import { useSecureVuStats } from "@/api/ws";
 
 import { useTranslation } from "react-i18next";
 
-export default function useStats(stats: FrigateStats | undefined) {
+export default function useStats(stats: SecureVuStats | undefined) {
   const { t } = useTranslation(["views/system"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const { data: debugReplayStatus } = useSWR("debug_replay/status", {
     revalidateOnFocus: false,
   });
@@ -30,7 +30,7 @@ export default function useStats(stats: FrigateStats | undefined) {
       return problems;
     }
 
-    // if frigate has just started
+    // if securevu has just started
     // don't look for issues
     if (memoizedStats.service.uptime < 120) {
       return problems;
@@ -151,11 +151,11 @@ export default function useStats(stats: FrigateStats | undefined) {
   return { potentialProblems };
 }
 
-export function useAutoFrigateStats() {
-  const { data: initialStats } = useSWR<FrigateStats>("stats", {
+export function useAutoSecureVuStats() {
+  const { data: initialStats } = useSWR<SecureVuStats>("stats", {
     revalidateOnFocus: false,
   });
-  const latestStats = useFrigateStats();
+  const latestStats = useSecureVuStats();
 
   const stats = useMemo(() => {
     if (latestStats) {

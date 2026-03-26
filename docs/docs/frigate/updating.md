@@ -3,30 +3,30 @@ id: updating
 title: Updating
 ---
 
-# Updating Frigate
+# Updating SecureVu
 
-The current stable version of Frigate is **0.17.0**. The release notes and any breaking changes for this version can be found on the [Frigate GitHub releases page](https://github.com/blakeblackshear/frigate/releases/tag/v0.17.0).
+The current stable version of SecureVu is **0.17.0**. The release notes and any breaking changes for this version can be found on the [SecureVu GitHub releases page](https://github.com/SecureCorp-Mexico/SecureVu/releases/tag/v0.17.0).
 
-Keeping Frigate up to date ensures you benefit from the latest features, performance improvements, and bug fixes. The update process varies slightly depending on your installation method (Docker, Home Assistant App, etc.). Below are instructions for the most common setups.
+Keeping SecureVu up to date ensures you benefit from the latest features, performance improvements, and bug fixes. The update process varies slightly depending on your installation method (Docker, Home Assistant App, etc.). Below are instructions for the most common setups.
 
 ## Before You Begin
 
-- **Stop Frigate**: For most methods, you’ll need to stop the running Frigate instance before backing up and updating.
-- **Backup Your Configuration**: Always back up your `/config` directory (e.g., `config.yml` and `frigate.db`, the SQLite database) before updating. This ensures you can roll back if something goes wrong.
-- **Check Release Notes**: Carefully review the [Frigate GitHub releases page](https://github.com/blakeblackshear/frigate/releases) for breaking changes or configuration updates that might affect your setup.
+- **Stop SecureVu**: For most methods, you’ll need to stop the running SecureVu instance before backing up and updating.
+- **Backup Your Configuration**: Always back up your `/config` directory (e.g., `config.yml` and `securevu.db`, the SQLite database) before updating. This ensures you can roll back if something goes wrong.
+- **Check Release Notes**: Carefully review the [SecureVu GitHub releases page](https://github.com/SecureCorp-Mexico/SecureVu/releases) for breaking changes or configuration updates that might affect your setup.
 
 ## Updating with Docker
 
-If you’re running Frigate via Docker (recommended method), follow these steps:
+If you’re running SecureVu via Docker (recommended method), follow these steps:
 
 1. **Stop the Container**:
    - If using Docker Compose:
      ```bash
-     docker compose down frigate
+     docker compose down securevu
      ```
    - If using `docker run`:
      ```bash
-     docker stop frigate
+     docker stop securevu
      ```
 
 2. **Update and Pull the Latest Image**:
@@ -34,7 +34,7 @@ If you’re running Frigate via Docker (recommended method), follow these steps:
      - Edit your `docker-compose.yml` file to specify the desired version tag (e.g., `0.17.0` instead of `0.16.4`). For example:
        ```yaml
        services:
-         frigate:
+         securevu:
            image: ghcr.io/blakeblackshear/frigate:0.17.0
        ```
      - Then pull the image:
@@ -56,11 +56,11 @@ If you’re running Frigate via Docker (recommended method), follow these steps:
    - If using `docker run`, re-run your original command (e.g., from the [Installation](./installation.md#docker) section) with the updated image tag.
 
 4. **Verify the Update**:
-   - Check the container logs to ensure Frigate starts successfully:
+   - Check the container logs to ensure SecureVu starts successfully:
      ```bash
-     docker logs frigate
+     docker logs securevu
      ```
-   - Visit the Frigate Web UI (default: `http://<your-ip>:5000`) to confirm the new version is running. The version number is displayed at the top of the System Metrics page.
+   - Visit the SecureVu Web UI (default: `http://<your-ip>:5000`) to confirm the new version is running. The version number is displayed at the top of the System Metrics page.
 
 ### Notes
 
@@ -69,34 +69,34 @@ If you’re running Frigate via Docker (recommended method), follow these steps:
 
 ## Updating the Home Assistant App (formerly Addon)
 
-For users running Frigate as a Home Assistant App:
+For users running SecureVu as a Home Assistant App:
 
 1. **Check for Updates**:
    - Navigate to **Settings > Apps** in Home Assistant.
-   - Find your installed Frigate app (e.g., "Frigate NVR" or "Frigate NVR (Full Access)").
+   - Find your installed SecureVu app (e.g., "SecureVu NVR" or "SecureVu NVR (Full Access)").
    - If an update is available, you’ll see an "Update" button.
 
 2. **Update the App**:
-   - Click the "Update" button next to the Frigate app.
+   - Click the "Update" button next to the SecureVu app.
    - Wait for the process to complete. Home Assistant will handle downloading and installing the new version.
 
 3. **Restart the App**:
    - After updating, go to the app’s page and click "Restart" to apply the changes.
 
 4. **Verify the Update**:
-   - Check the app logs (under the "Log" tab) to ensure Frigate starts without errors.
-   - Access the Frigate Web UI to confirm the new version is running.
+   - Check the app logs (under the "Log" tab) to ensure SecureVu starts without errors.
+   - Access the SecureVu Web UI to confirm the new version is running.
 
 ### Notes
 
-- Ensure your `/config/frigate.yml` is compatible with the new version by reviewing the [Release notes](https://github.com/blakeblackshear/frigate/releases).
+- Ensure your `/config/securevu.yml` is compatible with the new version by reviewing the [Release notes](https://github.com/SecureCorp-Mexico/SecureVu/releases).
 - If using custom hardware (e.g., Coral or GPU), verify that configurations still work, as app updates don’t modify your hardware settings.
 
 ## Rolling Back
 
 If an update causes issues:
 
-1. Stop Frigate.
+1. Stop SecureVu.
 2. Restore your backed-up config file and database.
 3. Revert to the previous image version:
    - For Docker: Specify an older tag (e.g., `ghcr.io/blakeblackshear/frigate:0.16.4`) in your `docker run` command.
@@ -106,8 +106,8 @@ If an update causes issues:
 
 ## Troubleshooting
 
-- **Container Fails to Start**: Check logs (`docker logs frigate`) for errors.
+- **Container Fails to Start**: Check logs (`docker logs securevu`) for errors.
 - **UI Not Loading**: Ensure ports (e.g., 5000, 8971) are still mapped correctly and the service is running.
 - **Hardware Issues**: Revisit hardware-specific setup (e.g., Coral, GPU) if detection or decoding fails post-update.
 
-Common questions are often answered in the [FAQ](https://github.com/blakeblackshear/frigate/discussions), pinned at the top of the support discussions.
+Common questions are often answered in the [FAQ](https://github.com/SecureCorp-Mexico/SecureVu/discussions), pinned at the top of the support discussions.

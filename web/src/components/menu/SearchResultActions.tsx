@@ -1,6 +1,6 @@
 import { useState, ReactNode, useCallback } from "react";
 import { SearchResult } from "@/types/search";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { baseUrl } from "@/api/baseUrl";
 import { toast } from "sonner";
 import axios from "axios";
@@ -58,7 +58,7 @@ export default function SearchResultActions({
   const navigate = useNavigate();
   const [isStarting, setIsStarting] = useState(false);
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 

@@ -5,7 +5,7 @@
         "description": "Camera naam is verplicht"
     },
     "friendly_name": {
-        "description": "Camera naam te gebruiken in de Frigate UI",
+        "description": "Camera naam te gebruiken in de SecureVu UI",
         "label": "Herkenbare naam"
     },
     "enabled": {

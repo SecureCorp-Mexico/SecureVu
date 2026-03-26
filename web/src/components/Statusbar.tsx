@@ -3,7 +3,7 @@ import {
   StatusBarMessagesContext,
   StatusMessage,
 } from "@/context/statusbar-provider";
-import useStats, { useAutoFrigateStats } from "@/hooks/use-stats";
+import useStats, { useAutoSecureVuStats } from "@/hooks/use-stats";
 import { cn } from "@/lib/utils";
 import type { ProfilesApiResponse } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
@@ -23,10 +23,10 @@ export default function Statusbar() {
     StatusBarMessagesContext,
   )!;
 
-  const stats = useAutoFrigateStats();
+  const stats = useAutoSecureVuStats();
 
   const cpuPercent = useMemo(() => {
-    const systemCpu = stats?.cpu_usages["frigate.full_system"]?.cpu;
+    const systemCpu = stats?.cpu_usages["securevu.full_system"]?.cpu;
 
     if (!systemCpu || systemCpu == "0.0") {
       return null;

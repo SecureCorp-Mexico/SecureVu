@@ -3,53 +3,53 @@ id: memory
 title: Memory Usage
 ---
 
-Frigate includes built-in memory profiling using [memray](https://bloomberg.github.io/memray/) to help diagnose memory issues. This feature allows you to profile specific Frigate modules to identify memory leaks, excessive allocations, or other memory-related problems.
+SecureVu includes built-in memory profiling using [memray](https://bloomberg.github.io/memray/) to help diagnose memory issues. This feature allows you to profile specific SecureVu modules to identify memory leaks, excessive allocations, or other memory-related problems.
 
 ## Enabling Memory Profiling
 
-Memory profiling is controlled via the `FRIGATE_MEMRAY_MODULES` environment variable. Set it to a comma-separated list of module names you want to profile:
+Memory profiling is controlled via the `SECUREVU_MEMRAY_MODULES` environment variable. Set it to a comma-separated list of module names you want to profile:
 
 ```yaml
 # docker-compose example
 services:
-  frigate:
+  securevu:
     ...
     environment:
-      - FRIGATE_MEMRAY_MODULES=frigate.embeddings,frigate.capture
+      - SECUREVU_MEMRAY_MODULES=securevu.embeddings,securevu.capture
 ```
 
 ```bash
 # docker run example
-docker run -e FRIGATE_MEMRAY_MODULES="frigate.embeddings" \
+docker run -e SECUREVU_MEMRAY_MODULES="securevu.embeddings" \
    ...
-   --name frigate <frigate_image>
+   --name securevu <securevu_image>
 ```
 
 ### Module Names
 
-Frigate processes are named using a module-based naming scheme. Common module names include:
+SecureVu processes are named using a module-based naming scheme. Common module names include:
 
-- `frigate.review_segment_manager` - Review segment processing
-- `frigate.recording_manager` - Recording management
-- `frigate.capture` - Camera capture processes (all cameras with this module name)
-- `frigate.process` - Camera processing/tracking (all cameras with this module name)
-- `frigate.output` - Output processing
-- `frigate.audio_manager` - Audio processing
-- `frigate.embeddings` - Embeddings processing
+- `securevu.review_segment_manager` - Review segment processing
+- `securevu.recording_manager` - Recording management
+- `securevu.capture` - Camera capture processes (all cameras with this module name)
+- `securevu.process` - Camera processing/tracking (all cameras with this module name)
+- `securevu.output` - Output processing
+- `securevu.audio_manager` - Audio processing
+- `securevu.embeddings` - Embeddings processing
 
 You can also specify the full process name (including camera-specific identifiers) if you want to profile a specific camera:
 
 ```bash
-FRIGATE_MEMRAY_MODULES=frigate.capture:front_door
+SECUREVU_MEMRAY_MODULES=securevu.capture:front_door
 ```
 
-When you specify a module name (e.g., `frigate.capture`), all processes with that module prefix will be profiled. For example, `frigate.capture` will profile all camera capture processes.
+When you specify a module name (e.g., `securevu.capture`), all processes with that module prefix will be profiled. For example, `securevu.capture` will profile all camera capture processes.
 
 ## How It Works
 
 1. **Binary File Creation**: When profiling is enabled, memray creates a binary file (`.bin`) in `/config/memray_reports/` that is updated continuously in real-time as the process runs.
 
-2. **Automatic HTML Generation**: On normal process exit, Frigate automatically:
+2. **Automatic HTML Generation**: On normal process exit, SecureVu automatically:
 
    - Stops memray tracking
    - Generates an HTML flamegraph report
@@ -67,10 +67,10 @@ After a process exits normally, you'll find HTML reports in `/config/memray_repo
 
 If a process crashes or you want to generate a report from an existing binary file, you can manually create the HTML report:
 
-- Run `memray` inside the Frigate container:
+- Run `memray` inside the SecureVu container:
 
 ```bash
-docker-compose exec frigate memray flamegraph /config/memray_reports/<module_name>.bin
+docker-compose exec securevu memray flamegraph /config/memray_reports/<module_name>.bin
 # or
 docker exec -it <container_name_or_id> memray flamegraph /config/memray_reports/<module_name>.bin
 ```
@@ -128,7 +128,7 @@ The interactive HTML reports allow you to:
 ### Reports Show No Data
 
 - Ensure the process ran long enough to generate meaningful data
-- Check that memray is properly installed (included by default in Frigate)
+- Check that memray is properly installed (included by default in SecureVu)
 - Verify the process actually started and ran (check process logs)
 
 For more information about memray and interpreting reports, see the [official memray documentation](https://bloomberg.github.io/memray/).

@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/sonner";
 import { StatusBarMessagesContext } from "@/context/statusbar-provider";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import {
@@ -82,7 +82,7 @@ export default function NotificationsSettingsExtras({
   const { addMessage, removeMessage } = useContext(StatusBarMessagesContext)!;
 
   // config
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
 
@@ -714,7 +714,7 @@ export default function NotificationsSettingsExtras({
 }
 
 type CameraNotificationSwitchProps = {
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
   camera: string;
 };
 

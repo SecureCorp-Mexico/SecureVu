@@ -38,7 +38,7 @@ import { useCameraActivity } from "@/hooks/use-camera-activity";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/ui/heading";
 import { Toaster } from "@/components/ui/sonner";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, SecureVuConfig } from "@/types/securevuConfig";
 import { getIconForLabel } from "@/utils/iconUtil";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { ObjectType } from "@/types/ws";
@@ -180,7 +180,7 @@ export default function Replay() {
   }, [navigate, refreshStatus, t]);
 
   // Camera activity for the replay camera
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
   const replayCameraName = status?.replay_camera ?? "";
@@ -629,7 +629,7 @@ export default function Replay() {
 type ObjectListProps = {
   cameraConfig?: CameraConfig;
   objects?: ObjectType[];
-  config?: FrigateConfig;
+  config?: SecureVuConfig;
 };
 
 function ObjectList({ cameraConfig, objects, config }: ObjectListProps) {

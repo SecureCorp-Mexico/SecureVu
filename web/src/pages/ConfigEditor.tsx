@@ -17,7 +17,7 @@ import RestartDialog from "@/components/overlay/dialog/RestartDialog";
 import { useTranslation } from "react-i18next";
 import { useRestart } from "@/api/ws";
 import { useResizeObserver } from "@/hooks/resize-observer";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 
 type SaveOptions = "saveonly" | "restart";
 
@@ -34,7 +34,7 @@ function ConfigEditor() {
     document.title = t("documentTitle");
   }, [t]);
 
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
   const { data: rawConfig } = useSWR<string>("config/raw");

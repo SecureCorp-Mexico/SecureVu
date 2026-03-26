@@ -18,7 +18,7 @@ import PolygonEditControls from "./PolygonEditControls";
 import { FaCheckCircle } from "react-icons/fa";
 import { MotionMaskFormValuesType, Polygon } from "@/types/canvas";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { flattenPoints, interpolatePoints } from "@/utils/canvasUtil";
 import axios from "axios";
 import { toast } from "sonner";
@@ -64,7 +64,7 @@ export default function MotionMaskEditPane({
   const { t } = useTranslation(["views/settings"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   const polygon = useMemo(() => {
     if (polygons && activePolygonIndex !== undefined) {
@@ -378,7 +378,7 @@ export default function MotionMaskEditPane({
           <div className="mb-3 text-sm text-primary">
             {t("masksAndZones.motionMasks.polygonAreaTooLarge.tips")}
             <Link
-              to="https://github.com/blakeblackshear/frigate/discussions/13040"
+              to="https://github.com/SecureCorp-Mexico/SecureVu/discussions/13040"
               target="_blank"
               rel="noopener noreferrer"
               className="my-3 block"

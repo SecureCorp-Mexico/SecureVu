@@ -1,5 +1,5 @@
 import type { RendererComponent } from "@/components/config-form/sectionExtras/registry";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, SecureVuConfig } from "@/types/securevuConfig";
 
 export type JsonPrimitive = string | number | boolean | null;
 
@@ -33,7 +33,7 @@ export type ConfigFormContext = {
   hiddenFields?: string[];
   onFormDataChange?: (data: ConfigSectionData) => void;
   fullCameraConfig?: CameraConfig;
-  fullConfig?: FrigateConfig;
+  fullConfig?: SecureVuConfig;
   i18nNamespace?: string;
   sectionI18nPrefix?: string;
   sectionDocs?: string;

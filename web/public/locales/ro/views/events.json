@@ -21,9 +21,9 @@
     "noFoundForTimePeriod": "Niciun eveniment gasit pentru acest interval de timp.",
     "label": "Evenimente"
   },
-  "documentTitle": "Revizuieste - Frigate",
+  "documentTitle": "Revizuieste - SecureVu",
   "recordings": {
-    "documentTitle": "Inregistrari - frigate"
+    "documentTitle": "Inregistrari - securevu"
   },
   "calendarFilter": {
     "last24Hours": "Ultimele 24 de ore"

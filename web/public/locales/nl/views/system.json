@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "general": "Algemene Statistieken - Frigate",
+    "general": "Algemene Statistieken - SecureVu",
     "logs": {
-      "nginx": "Nginx Logboeken - Frigate",
-      "go2rtc": "Go2RTC Logboeken - Frigate",
-      "frigate": "Frigate Logboek - Frigate"
+      "nginx": "Nginx Logboeken - SecureVu",
+      "go2rtc": "Go2RTC Logboeken - SecureVu",
+      "securevu": "SecureVu Logboek - SecureVu"
     },
-    "storage": "Opslag Statistieken - Frigate",
-    "cameras": "Camera Statistieken - Frigate",
-    "enrichments": "Verrijkings Statistieken - Frigate"
+    "storage": "Opslag Statistieken - SecureVu",
+    "cameras": "Camera Statistieken - SecureVu",
+    "enrichments": "Verrijkings Statistieken - SecureVu"
   },
   "title": "Systeem",
   "metrics": "Systeemstatistieken",
@@ -79,7 +79,7 @@
       "intelGpuWarning": {
         "title": "Waarschuwing Intel GPU-statistieken",
         "message": "GPU-statistieken niet beschikbaar",
-        "description": "Dit is een bekend probleem in de GPU-statistiekentools van Intel (intel_gpu_top). Deze raken defect en geven herhaaldelijk een GPU-gebruik van 0% weer, zelfs wanneer hardware-acceleratie en objectdetectie correct draaien op de (i)GPU. Dit is geen bug in Frigate. Je kunt de host opnieuw opstarten om het tijdelijk op te lossen en te controleren dat de GPU goed werkt. Dit heeft geen invloed op de prestaties."
+        "description": "Dit is een bekend probleem in de GPU-statistiekentools van Intel (intel_gpu_top). Deze raken defect en geven herhaaldelijk een GPU-gebruik van 0% weer, zelfs wanneer hardware-acceleratie en objectdetectie correct draaien op de (i)GPU. Dit is geen bug in SecureVu. Je kunt de host opnieuw opstarten om het tijdelijk op te lossen en te controleren dat de GPU goed werkt. Dit heeft geen invloed op de prestaties."
       },
       "gpuTemperature": "GPU Temperatuur"
     },
@@ -102,7 +102,7 @@
     "recordings": {
       "title": "Opnames",
       "earliestRecording": "Oudste beschikbare opname:",
-      "tips": "Deze waarde laat het totale opslag ruimte gebruik voor opnames zien in de database van Frigate. Frigate houdt geen opslag gebruiks gegevens bij van alle bestanden op uw schijf."
+      "tips": "Deze waarde laat het totale opslag ruimte gebruik voor opnames zien in de database van SecureVu. SecureVu houdt geen opslag gebruiks gegevens bij van alle bestanden op uw schijf."
     },
     "cameraStorage": {
       "title": "Camera Opslag",
@@ -111,7 +111,7 @@
       "percentageOfTotalUsed": "Percentage van Totaal",
       "unused": {
         "title": "Ongebruikt",
-        "tips": "Deze waarde kan de beschikbare opslag ruimte voor Frigate niet goed weergeven indien er ook andere bestanden op de schijf staan. Frigate houdt geen opslag gegevens bij van bestanden buiten haar eigen opnames."
+        "tips": "Deze waarde kan de beschikbare opslag ruimte voor SecureVu niet goed weergeven indien er ook andere bestanden op de schijf staan. SecureVu houdt geen opslag gegevens bij van bestanden buiten haar eigen opnames."
       },
       "camera": "Camera",
       "bandwidth": "Bandbreedte"

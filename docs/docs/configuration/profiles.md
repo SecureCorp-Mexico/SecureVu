@@ -3,7 +3,7 @@ id: profiles
 title: Profiles
 ---
 
-Profiles allow you to define named sets of camera configuration overrides that can be activated and deactivated at runtime without restarting Frigate. This is useful for scenarios like switching between "Home" and "Away" modes, daytime and nighttime configurations, or any situation where you want to quickly change how multiple cameras behave.
+Profiles allow you to define named sets of camera configuration overrides that can be activated and deactivated at runtime without restarting SecureVu. This is useful for scenarios like switching between "Home" and "Away" modes, daytime and nighttime configurations, or any situation where you want to quickly change how multiple cameras behave.
 
 ## How Profiles Work
 
@@ -12,17 +12,17 @@ Profiles operate as a two-level system:
 1. **Profile definitions** are declared at the top level of your config under `profiles`. Each definition has a machine name (the key) and a `friendly_name` for display in the UI.
 2. **Camera profile overrides** are declared under each camera's `profiles` section, keyed by the profile name. Only the settings you want to change need to be specified — everything else is inherited from the camera's base configuration.
 
-When a profile is activated, Frigate merges each camera's profile overrides on top of its base config. When the profile is deactivated, all cameras revert to their original settings. Only one profile can be active at a time.
+When a profile is activated, SecureVu merges each camera's profile overrides on top of its base config. When the profile is deactivated, all cameras revert to their original settings. Only one profile can be active at a time.
 
 :::info
 
-Profile changes are applied in-memory and take effect immediately — no restart is required. The active profile is persisted across Frigate restarts (stored in the `/config/.active_profile` file).
+Profile changes are applied in-memory and take effect immediately — no restart is required. The active profile is persisted across SecureVu restarts (stored in the `/config/.active_profile` file).
 
 :::
 
 ## Configuration
 
-The easiest way to define profiles is to use the Frigate UI. Profiles can also be configured manually in your configuration file.
+The easiest way to define profiles is to use the SecureVu UI. Profiles can also be configured manually in your configuration file.
 
 ### Using the UI
 
@@ -30,12 +30,12 @@ To create and manage profiles from the UI, open **Settings**. From there you can
 
 1. **Create a profile** — Navigate to **Profiles**. Click the **Add Profile** button, enter a name (and optionally a profile ID).
 2. **Configure overrides** — Navigate to a camera configuration section (e.g. Motion detection, Record, Notifications). In the top right, two buttons will appear - choose a camera and a profile from the profile selector to edit overrides for that camera and section. Only the fields you change will be stored as overrides — fields that require a restart are hidden since profiles are applied at runtime. You can click the **Remove Profile Override** button
-3. **Activate a profile** — Use the **Profiles** option in Frigate's main menu to choose a profile. Alternatively, in Settings, navigate to **Profiles**, then choose a profile in the Active Profile dropdown to activate it. The active profile is also shown in the status bar at the bottom of the screen on desktop browsers.
+3. **Activate a profile** — Use the **Profiles** option in SecureVu's main menu to choose a profile. Alternatively, in Settings, navigate to **Profiles**, then choose a profile in the Active Profile dropdown to activate it. The active profile is also shown in the status bar at the bottom of the screen on desktop browsers.
 4. **Delete a profile** — Navigate to **Profiles**, then click the trash icon for a profile. This removes the profile definition and all camera overrides associated with it.
 
 ### Defining Profiles in YAML
 
-First, define your profiles at the top level of your Frigate config. Every profile name referenced by a camera must be defined here.
+First, define your profiles at the top level of your SecureVu config. Every profile name referenced by a camera must be defined here.
 
 ```yaml
 profiles:
@@ -119,7 +119,7 @@ Only the fields you explicitly set in a profile override are applied. All other 
 
 ## Activating Profiles
 
-Profiles can be activated and deactivated from the Frigate UI. Open the Settings cog and select **Profiles** from the submenu to see all defined profiles. From there you can activate any profile or deactivate the current one. The active profile is indicated in the UI so you always know which profile is in effect.
+Profiles can be activated and deactivated from the SecureVu UI. Open the Settings cog and select **Profiles** from the submenu to see all defined profiles. From there you can activate any profile or deactivate the current one. The active profile is indicated in the UI so you always know which profile is in effect.
 
 ## Example: Home / Away Setup
 

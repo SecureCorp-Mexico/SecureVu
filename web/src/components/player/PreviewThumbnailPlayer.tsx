@@ -9,7 +9,7 @@ import {
 import { getIconForLabel } from "@/utils/iconUtil";
 import TimeAgo from "../dynamic/TimeAgo";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { isIOS, isMobile, isSafari } from "react-device-detect";
 import Chip from "@/components/indicators/Chip";
 import { useFormattedTimestamp } from "@/hooks/use-date-utils";
@@ -51,7 +51,7 @@ export default function PreviewThumbnailPlayer({
 }: PreviewPlayerProps) {
   const { t } = useTranslation(["components/player", "views/events"]);
   const apiHost = useApiHost();
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<SecureVuConfig>("config");
   const [imgRef, imgLoaded, onImgLoad] = useImageLoaded();
 
   // interaction

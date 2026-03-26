@@ -209,7 +209,7 @@ COPY --from=wheels /rootfs/ /
 COPY docker/main/rootfs/ /
 
 
-# Frigate deps (ffmpeg, python, nginx, go2rtc, s6-overlay, etc)
+# SecureVu deps (ffmpeg, python, nginx, go2rtc, s6-overlay, etc)
 FROM slim-base AS deps
 ARG TARGETARCH
 ARG BASE_IMAGE
@@ -267,7 +267,7 @@ RUN --mount=type=bind,from=wheels,source=/wheels,target=/deps/wheels \
     pip3 install -U /deps/wheels/*.whl
 
 # Install Axera Engine
-RUN pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3-frigate/axengine-0.1.3-py3-none-any.whl
+RUN pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3-securevu/axengine-0.1.3-py3-none-any.whl
 
 ENV PATH="${PATH}:/usr/bin/axcl"
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib/axcl"
@@ -293,18 +293,18 @@ ENTRYPOINT ["/init"]
 CMD []
 
 HEALTHCHECK --start-period=300s --start-interval=5s --interval=15s --timeout=5s --retries=3 \
-    CMD test -f /dev/shm/.frigate-is-stopping && exit 0; curl --fail --silent --show-error http://127.0.0.1:5000/api/version || exit 1
+    CMD test -f /dev/shm/.securevu-is-stopping && exit 0; curl --fail --silent --show-error http://127.0.0.1:5000/api/version || exit 1
 
-# Frigate deps with Node.js and NPM for devcontainer
+# SecureVu deps with Node.js and NPM for devcontainer
 FROM deps AS devcontainer
 
-# Do not start the actual Frigate service on devcontainer as it will be started by VS Code
+# Do not start the actual SecureVu service on devcontainer as it will be started by VS Code
 # But start a fake service for simulating the logs
-COPY docker/main/fake_frigate_run /etc/s6-overlay/s6-rc.d/frigate/run
+COPY docker/main/fake_securevu_run /etc/s6-overlay/s6-rc.d/securevu/run
 
-# Create symbolic link to the frigate source code, as go2rtc's create_config.sh uses it
-RUN mkdir -p /opt/frigate \
-    && ln -svf /workspace/frigate/frigate /opt/frigate/frigate
+# Create symbolic link to the securevu source code, as go2rtc's create_config.sh uses it
+RUN mkdir -p /opt/securevu \
+    && ln -svf /workspace/securevu/securevu /opt/securevu/securevu
 
 # Install Node 20
 RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && \
@@ -314,13 +314,13 @@ RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && \
     && rm -rf /var/lib/apt/lists/* \
     && npm install -g npm@10
 
-WORKDIR /workspace/frigate
+WORKDIR /workspace/securevu
 
 RUN apt-get update \
     && apt-get install make -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN --mount=type=bind,source=./docker/main/requirements-dev.txt,target=/workspace/frigate/requirements-dev.txt \
+RUN --mount=type=bind,source=./docker/main/requirements-dev.txt,target=/workspace/securevu/requirements-dev.txt \
     pip3 install -r requirements-dev.txt
 
 HEALTHCHECK NONE
@@ -328,7 +328,7 @@ HEALTHCHECK NONE
 CMD ["sleep", "infinity"]
 
 
-# Frigate web build
+# SecureVu web build
 # This should be architecture agnostic, so speed up the build on multiarch by not using QEMU.
 FROM --platform=$BUILDPLATFORM node:20 AS web-build
 
@@ -344,13 +344,13 @@ RUN npm run build \
 # Collect final files in a single layer
 FROM scratch AS rootfs
 
-WORKDIR /opt/frigate/
-COPY frigate frigate/
+WORKDIR /opt/securevu/
+COPY securevu securevu/
 COPY migrations migrations/
 COPY --from=web-build /work/dist/ web/
 
-# Frigate final container
-FROM deps AS frigate
+# SecureVu final container
+FROM deps AS securevu
 
-WORKDIR /opt/frigate/
+WORKDIR /opt/securevu/
 COPY --from=rootfs / /

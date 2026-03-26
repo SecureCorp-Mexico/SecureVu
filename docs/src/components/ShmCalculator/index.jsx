@@ -76,7 +76,7 @@ const ShmCalculator = () => {
           The resolution below is the <strong>detect</strong> stream resolution,
           not the <strong>record</strong> stream resolution. SHM size is
           determined by the detect resolution used for object detection.{" "}
-          <a href="/frigate/camera_setup#choosing-a-detect-resolution">
+          <a href="/securevu/camera_setup#choosing-a-detect-resolution">
             Learn more about choosing a detect resolution.
           </a>
         </Admonition>

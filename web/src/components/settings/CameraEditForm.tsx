@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useMemo, useEffect } from "react";
 import { LuTrash2, LuPlus } from "react-icons/lu";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import useSWR from "swr";
 import { processCameraName } from "@/utils/cameraUtil";
 import { Label } from "@/components/ui/label";
@@ -44,7 +44,7 @@ export default function CameraEditForm({
 }: CameraEditFormProps) {
   const { t } = useTranslation(["views/settings"]);
   const { data: config, mutate: mutateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
   const { data: rawPaths, mutate: mutateRawPaths } = useSWR<{
     cameras: Record<
       string,

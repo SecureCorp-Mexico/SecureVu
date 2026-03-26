@@ -1,5 +1,5 @@
 import { IconName } from "@/components/icons/IconPicker";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { EventType } from "@/types/search";
 import { BsPersonWalking } from "react-icons/bs";
 import {
@@ -41,7 +41,7 @@ import * as LuIcons from "react-icons/lu";
 import { MdRecordVoiceOver } from "react-icons/md";
 import { PiBirdFill } from "react-icons/pi";
 
-export function getAttributeLabels(config?: FrigateConfig) {
+export function getAttributeLabels(config?: SecureVuConfig) {
   if (!config) {
     return [];
   }

@@ -42,7 +42,7 @@
     },
     "friendly_name": {
         "label": "Anzeigename",
-        "description": "Kamera-Anzeigename in der Frigate-Benutzeroberfläche"
+        "description": "Kamera-Anzeigename in der SecureVu-Benutzeroberfläche"
     },
     "audio_transcription": {
         "label": "Audio-Transkription",

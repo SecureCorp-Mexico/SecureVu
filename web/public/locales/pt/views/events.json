@@ -18,9 +18,9 @@
   },
   "timeline.aria": "Selecione a linha do tempo",
   "alerts": "Alertas",
-  "documentTitle": "Análise - Frigate",
+  "documentTitle": "Análise - SecureVu",
   "recordings": {
-    "documentTitle": "Frigate - Gravações"
+    "documentTitle": "SecureVu - Gravações"
   },
   "calendarFilter": {
     "last24Hours": "Últimas 24 horas"

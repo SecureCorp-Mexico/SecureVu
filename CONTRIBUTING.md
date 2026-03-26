@@ -1,6 +1,6 @@
-# Contributing to Frigate
+# Contributing to SecureVu
 
-Thank you for your interest in contributing to Frigate. This document covers the expectations and guidelines for contributions. Please read it before submitting a pull request.
+Thank you for your interest in contributing to SecureVu. This document covers the expectations and guidelines for contributions. Please read it before submitting a pull request.
 
 ## Before you start
 
@@ -12,8 +12,8 @@ If you've found a bug and want to fix it, go for it. Link to the relevant issue 
 
 Every new feature adds scope that the maintainers must test, maintain, and support long-term. Before writing code for a new feature:
 
-1. **Check for existing discussion.** Search [feature requests](https://github.com/blakeblackshear/frigate/issues) and [discussions](https://github.com/blakeblackshear/frigate/discussions) to see if it's been proposed or discussed. Pinned feature requests are on our radar — we plan to get to them, but we don't maintain a public roadmap or timeline. Check in with us first if you have interest in contributing to one.
-2. **Start a discussion or feature request first.** This helps ensure your idea aligns with Frigate's direction before you invest time building it. Community interest in a feature request helps us gauge demand, though a great idea is a great idea even without a crowd behind it.
+1. **Check for existing discussion.** Search [feature requests](https://github.com/SecureCorp-Mexico/SecureVu/issues) and [discussions](https://github.com/SecureCorp-Mexico/SecureVu/discussions) to see if it's been proposed or discussed. Pinned feature requests are on our radar — we plan to get to them, but we don't maintain a public roadmap or timeline. Check in with us first if you have interest in contributing to one.
+2. **Start a discussion or feature request first.** This helps ensure your idea aligns with SecureVu's direction before you invest time building it. Community interest in a feature request helps us gauge demand, though a great idea is a great idea even without a crowd behind it.
 3. **Be open to "no".** We try to be thoughtful about what we take on, and sometimes that means saying no to good code if the feature isn't the right fit for the project. These calls are sometimes subjective, and we won't always get them right. We're happy to discuss and reconsider.
 
 ## AI usage policy
@@ -31,7 +31,7 @@ If AI is used to generate any portion of the code, contributors must adhere to t
 
 ### Established contributors
 
-Contributors with a long history of thoughtful, quality contributions to Frigate have earned trust through that track record. The level of scrutiny we apply to AI usage naturally reflects that trust. This isn't a formal exemption — it's just how trust works. If you've been around, we know how you think and how you work. If you're new, we're still getting to know you, and clear disclosure helps build that relationship.
+Contributors with a long history of thoughtful, quality contributions to SecureVu have earned trust through that track record. The level of scrutiny we apply to AI usage naturally reflects that trust. This isn't a formal exemption — it's just how trust works. If you've been around, we know how you think and how you work. If you're new, we're still getting to know you, and clear disclosure helps build that relationship.
 
 ### What this means in practice
 
@@ -45,15 +45,15 @@ Some honest context: when we review a PR, we're not just evaluating whether the 
 
 - **Search for existing PRs** to avoid duplicating effort.
 - **Test your changes locally.** Your PR cannot be merged unless tests pass.
-- **Format your code.** Run `ruff format frigate` for Python and `npm run prettier:write` from the `web/` directory for frontend changes.
-- **Run the linter.** Run `ruff check frigate` for Python and `npm run lint` from `web/` for frontend.
+- **Format your code.** Run `ruff format securevu` for Python and `npm run prettier:write` from the `web/` directory for frontend changes.
+- **Run the linter.** Run `ruff check securevu` for Python and `npm run lint` from `web/` for frontend.
 - **One concern per PR.** Don't combine unrelated changes. A bugfix and a new feature should be separate PRs.
 
 ### What we look for in review
 
 - **Does it work?** Tested locally, tests pass, no regressions.
 - **Is it maintainable?** Clear code, appropriate complexity, good separation of concerns.
-- **Does it fit?** Consistent with Frigate's architecture and design philosophy.
+- **Does it fit?** Consistent with SecureVu's architecture and design philosophy.
 - **Is it scoped well?** Solves the stated problem without unnecessary additions.
 
 ### After submitting
@@ -88,9 +88,9 @@ Some honest context: when we review a PR, we're not just evaluating whether the 
 ```bash
 # Python
 python3 -u -m unittest                              # Run all tests
-python3 -u -m unittest frigate.test.test_ffmpeg_presets  # Run specific test
-ruff format frigate                                  # Format
-ruff check frigate                                   # Lint
+python3 -u -m unittest securevu.test.test_ffmpeg_presets  # Run specific test
+ruff format securevu                                  # Format
+ruff check securevu                                   # Lint
 
 # Frontend (from web/ directory)
 npm run build                                        # Build
@@ -102,7 +102,7 @@ npm run prettier:write                               # Format
 ## Project structure
 
 ```
-frigate/           # Python backend
+securevu/           # Python backend
   api/             # FastAPI route handlers
   config/          # Configuration parsing and validation
   detectors/       # Object detection backends
@@ -124,9 +124,9 @@ migrations/        # Database migrations
 
 ## Translations
 
-Frigate uses [Weblate](https://hosted.weblate.org/projects/frigate-nvr/) for managing language translations. If you'd like to help translate Frigate into your language:
+SecureVu uses [Weblate](https://hosted.weblate.org/projects/securevu-nvr/) for managing language translations. If you'd like to help translate SecureVu into your language:
 
-1. Visit the [Frigate project on Weblate](https://hosted.weblate.org/projects/frigate-nvr/).
+1. Visit the [SecureVu project on Weblate](https://hosted.weblate.org/projects/securevu-nvr/).
 2. Create an account or log in.
 3. Browse the available languages and select the one you'd like to contribute to, or request a new language.
 4. Translate strings directly in the Weblate interface — no code changes or pull requests needed.
@@ -135,6 +135,6 @@ Translation contributions through Weblate are automatically synced to the reposi
 
 ## Resources
 
-- [Documentation](https://docs.frigate.video)
-- [Discussions, Support, and Bug Reports](https://github.com/blakeblackshear/frigate/discussions)
-- [Feature Requests](https://github.com/blakeblackshear/frigate/issues)
+- [Documentation](https://docs.secure.vu)
+- [Discussions, Support, and Bug Reports](https://github.com/SecureCorp-Mexico/SecureVu/discussions)
+- [Feature Requests](https://github.com/SecureCorp-Mexico/SecureVu/issues)

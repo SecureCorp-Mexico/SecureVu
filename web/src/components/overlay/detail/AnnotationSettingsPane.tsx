@@ -1,5 +1,5 @@
 import { Event } from "@/types/event";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { LuExternalLink, LuMinus, LuPlus } from "react-icons/lu";
@@ -33,7 +33,7 @@ export function AnnotationSettingsPane({
   const { getLocaleDocUrl } = useDocDomain();
 
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
 
   const [isLoading, setIsLoading] = useState(false);
 

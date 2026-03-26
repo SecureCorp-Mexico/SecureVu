@@ -8,17 +8,17 @@ import {
 } from "react";
 import {
   EmbeddingsReindexProgressType,
-  FrigateCameraState,
-  FrigateEvent,
-  FrigateReview,
+  SecureVuCameraState,
+  SecureVuEvent,
+  SecureVuReview,
   ModelState,
   ToggleableSetting,
   TrackedObjectUpdateReturnType,
   TriggerStatus,
-  FrigateAudioDetections,
+  SecureVuAudioDetections,
   Job,
 } from "@/types/ws";
-import { FrigateStats } from "@/types/stats";
+import { SecureVuStats } from "@/types/stats";
 import { isEqual } from "lodash";
 import { WsSendContext } from "./wsContext";
 import type { Update, WsSend } from "./wsContext";
@@ -136,7 +136,7 @@ function applyCameraActivity(payload: string) {
   if (payload === lastCameraActivityPayload) return;
   lastCameraActivityPayload = payload;
 
-  let activity: { [key: string]: Partial<FrigateCameraState> };
+  let activity: { [key: string]: Partial<SecureVuCameraState> };
 
   try {
     activity = JSON.parse(payload);
@@ -453,7 +453,7 @@ export function useRestart(): {
   return { payload: payload as string, send };
 }
 
-export function useFrigateEvents(): { payload: FrigateEvent } {
+export function useSecureVuEvents(): { payload: SecureVuEvent } {
   const {
     value: { payload },
   } = useWs("events", "");
@@ -464,7 +464,7 @@ export function useFrigateEvents(): { payload: FrigateEvent } {
   return { payload: parsed };
 }
 
-export function useAudioDetections(): { payload: FrigateAudioDetections } {
+export function useAudioDetections(): { payload: SecureVuAudioDetections } {
   const {
     value: { payload },
   } = useWs("audio_detections", "");
@@ -475,7 +475,7 @@ export function useAudioDetections(): { payload: FrigateAudioDetections } {
   return { payload: parsed };
 }
 
-export function useFrigateReviews(): FrigateReview {
+export function useSecureVuReviews(): SecureVuReview {
   const {
     value: { payload },
   } = useWs("reviews", "");
@@ -485,7 +485,7 @@ export function useFrigateReviews(): FrigateReview {
   );
 }
 
-export function useFrigateStats(): FrigateStats {
+export function useSecureVuStats(): SecureVuStats {
   const {
     value: { payload },
   } = useWs("stats", "");
@@ -499,7 +499,7 @@ export function useInitialCameraState(
   camera: string,
   revalidateOnFocus: boolean,
 ): {
-  payload: FrigateCameraState;
+  payload: SecureVuCameraState;
 } {
   const {
     value: { payload },
@@ -507,7 +507,7 @@ export function useInitialCameraState(
   } = useWs(`camera_activity/${camera}`, "onConnect");
 
   // camera_activity sub-topic payload is already parsed by expandCameraActivity
-  const data = payload as FrigateCameraState | undefined;
+  const data = payload as SecureVuCameraState | undefined;
 
   // onConnect is sent once in WsProvider.onopen — no need to re-request on
   // every component mount.  Components read cached wsState immediately via
@@ -528,7 +528,7 @@ export function useInitialCameraState(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revalidateOnFocus]);
 
-  return { payload: data as FrigateCameraState };
+  return { payload: data as SecureVuCameraState };
 }
 
 export function useModelState(

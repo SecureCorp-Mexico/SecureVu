@@ -5,7 +5,7 @@ import { useCameraPreviews } from "@/hooks/use-camera-previews";
 import { useTimezone } from "@/hooks/use-date-utils";
 import { useOverlayState, useSearchEffect } from "@/hooks/use-overlay-state";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { RecordingStartingPoint } from "@/types/record";
 import {
   RecordingsSummary,
@@ -32,7 +32,7 @@ import useSWR from "swr";
 export default function Events() {
   const { t } = useTranslation(["views/events"]);
 
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<SecureVuConfig>("config", {
     revalidateOnFocus: false,
   });
   const timezone = useTimezone(config);

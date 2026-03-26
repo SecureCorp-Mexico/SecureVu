@@ -53,7 +53,7 @@ import {
 } from "@/components/ui/dialog";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { useDocDomain } from "@/hooks/use-doc-domain";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { SecureVuConfig } from "@/types/securevuConfig";
 import { cn } from "@/lib/utils";
 import {
   isMaskedPath,
@@ -110,7 +110,7 @@ export default function Go2RtcStreamsSettingsView({
   const { t } = useTranslation(["views/settings", "common"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<SecureVuConfig>("config");
   const { data: rawPaths, mutate: updateRawPaths } =
     useSWR<RawPathsResponse>("config/raw_paths");
 
