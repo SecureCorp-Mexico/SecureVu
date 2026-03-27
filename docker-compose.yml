@@ -21,6 +21,7 @@ services:
       - ./debug:/media/securevu
     ports:
       - "5000:5000"
+      - "8971:8971"
       - "8554:8554"
       - "8555:8555"
   mqtt:
@@ -29,3 +30,4 @@ services:
     command: mosquitto -c /mosquitto-no-auth.conf
     ports:
       - "1883:1883"
+
