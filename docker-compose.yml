@@ -34,6 +34,13 @@ services:
       - ./config:/config
       - ./debug:/media/securevu
      # - /dev/bus/usb:/dev/bus/usb # Uncomment for Google Coral USB
+
+ports:
+      - "5000:5000"
+      - "8554:8554"
+      - "8555:8555"
+      - "8555:8555/udp"
+
   mqtt:
     container_name: mqtt
     image: eclipse-mosquitto:2.0
