@@ -1,8 +1,8 @@
 services:
   devcontainer:
     container_name: frigate-devcontainer
-    # Check host system's actual render/video/plugdev group IDs with 'getent group render', 'getent group video', and 'getent group plugdev'
-    # Must add these exact IDs in container's group_add section or OpenVINO GPU acceleration will fail
+    # Forzamos el arranque del motor de Python directamente para evitar el "Fake Service"
+    command: python3 -m frigate
     group_add:
       - "109" # render
       - "110" # render
@@ -12,15 +12,15 @@ services:
     build:
       context: .
       dockerfile: docker/main/Dockerfile
-      # Use target devcontainer-trt for TensorRT dev
       target: devcontainer
     environment:
       YOLO_MODELS: ""
     ports:
-      - "5000:5000"
-      - "8554:8554"
-      - "8555:8555/tcp"
-      - "8555:8555/udp"
+      - "5000:5000"       # Interfaz Estándar (HTTP)
+      - "8971:8971"       # Interfaz con Autenticación (HTTPS)
+      - "8554:8554"       # RTSP feeds
+      - "8555:8555/tcp"   # WebRTC
+      - "8555:8555/udp"   # WebRTC
     volumes:
       - .:/opt/frigate:cached
       - .:/workspace/frigate:cached
@@ -28,9 +28,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
       - ./debug:/media/frigate
+    # Reiniciar siempre a menos que se detenga manualmente
+    restart: unless-stopped
+
   mqtt:
     container_name: mqtt
     image: eclipse-mosquitto:2.0
-    command: mosquitto -c /mosquitto-no-auth.conf # enable no-auth mode
+    command: mosquitto -c /mosquitto-no-auth.conf
     ports:
       - "1883:1883"
+    restart: unless-stopped
