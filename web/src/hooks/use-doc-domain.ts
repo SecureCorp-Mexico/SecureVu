@@ -17,7 +17,7 @@ export function useDocDomain() {
   };
 
   // Get the appropriate documentation domain for current language
-  const docDomain = DOC_DOMAINS[i18n.language] || "docs.frigate.video";
+  const docDomain = DOC_DOMAINS[i18n.language] || "securecorp.com";
 
   /**
    * Get full documentation URL for a given path
