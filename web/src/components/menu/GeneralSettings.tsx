@@ -720,7 +720,7 @@ export default function GeneralSettings({ className }: GeneralSettingsProps) {
               </MenuItem>
             </a>
             <a
-              href="https://github.com/blakeblackshear/frigate"
+              href="https://securecorp.com/"
               target="_blank"
             >
               <MenuItem

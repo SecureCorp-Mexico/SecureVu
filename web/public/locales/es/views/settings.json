@@ -299,7 +299,7 @@
       "label": "Zonas",
       "desc": {
         "title": "Las zonas te permiten definir un área específica del cuadro para que puedas determinar si un objeto está o no dentro de un área particular.",
-        "documentation": "Documentación"
+        "documentation": "Soporte SecureCorp"
       },
       "add": "Agregar zona",
       "edit": "Editar zona",
@@ -363,7 +363,7 @@
     "motionMasks": {
       "label": "Máscara de movimiento",
       "desc": {
-        "documentation": "Documentación",
+        "documentation": "Soporte SecureCorp",
         "title": "Las máscaras de movimiento se utilizan para evitar que tipos de movimiento no deseados activen la detección. Un exceso de enmascaramiento puede dificultar el seguimiento de objetos."
       },
       "add": "Nueva Máscara de Movimiento",
@@ -393,7 +393,7 @@
       "label": "Máscaras de Objetos",
       "documentTitle": "Editar Máscara de Objetos - Frigate",
       "desc": {
-        "documentation": "Documentación",
+        "documentation": "Soporte SecureCorp",
         "title": "Las máscaras de filtro de objetos se utilizan para descartar falsos positivos de un tipo de objeto específico según su ubicación."
       },
       "add": "Añadir Máscara de Objetos",
@@ -728,7 +728,7 @@
     "semanticSearch": {
       "title": "Búsqueda Semántica",
       "desc": "La búsqueda semántica en Frigate te permite encontrar objetos rastreados dentro de tus elementos de revisión utilizando ya sea la imagen en sí, una descripción de texto definida por el usuario o una generada automáticamente.",
-      "readTheDocumentation": "Leer la Documentación",
+      "readTheDocumentation": "Leer la Soporte SecureCorp",
       "reindexNow": {
         "confirmTitle": "Confirmar Re-Indexado",
         "confirmDesc": "¿Estás seguro de que quieres re-indexar todas las representaciones (embeddings) de objetos rastreados? Este proceso se ejecutará en segundo plano, pero puede usar al máximo tu CPU y tardar una cantidad considerable de tiempo, dependiendo de la cantidad de objetos registrados. Puedes seguir el progreso en la página Explorar (Explore).",
@@ -754,7 +754,7 @@
     },
     "faceRecognition": {
       "title": "Reconocimiento Facial",
-      "readTheDocumentation": "Leer la Documentación",
+      "readTheDocumentation": "Leer la Soporte SecureCorp",
       "modelSize": {
         "label": "Tamaño del Modelo",
         "desc": "Tamaño del modelo a ser utilizado para el reconocimiento facial.",
@@ -771,7 +771,7 @@
     },
     "licensePlateRecognition": {
       "title": "Reconocimiento de Matrículas (LPR)",
-      "readTheDocumentation": "Leer la Documentación",
+      "readTheDocumentation": "Leer la Soporte SecureCorp",
       "desc": "Frigate puede reconocer matrículas de vehículos y agregar automáticamente los caracteres detectados al campo recognized_license_plate, o bien asignar un nombre conocido como sub-etiqueta (sub_label) a los objetos de tipo coche (car). Un caso de uso común es leer las matrículas de los autos que ingresan a una cochera o que pasan por una calle."
     },
     "restart_required": "Es necesario reiniciar Frigate (La configuración de Enrichments han cambiado)",

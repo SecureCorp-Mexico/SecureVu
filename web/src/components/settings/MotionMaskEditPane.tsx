@@ -378,7 +378,7 @@ export default function MotionMaskEditPane({
           <div className="mb-3 text-sm text-primary">
             {t("masksAndZones.motionMasks.polygonAreaTooLarge.tips")}
             <Link
-              to="https://github.com/blakeblackshear/frigate/discussions/13040"
+              to="https://securecorp.com//discussions/13040"
               target="_blank"
               rel="noopener noreferrer"
               className="my-3 block"
