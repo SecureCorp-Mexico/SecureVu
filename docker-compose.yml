@@ -22,6 +22,7 @@ services:
       - "8555:8555/tcp"
       - "8555:8555/udp"
     volumes:
+      - .:/opt/frigate:cached
       - .:/workspace/frigate:cached
       - ./web/dist:/opt/frigate/web:cached
       - /etc/localtime:/etc/localtime:ro
