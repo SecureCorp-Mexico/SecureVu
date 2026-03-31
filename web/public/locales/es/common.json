@@ -180,7 +180,7 @@
       "title": "Documentación",
       "label": "Documentación de Frigate"
     },
-    "restart": "Reiniciar Frigate",
+    "restart": "Reiniciar SecureVu",
     "live": {
       "title": "Directo",
       "cameras": {
