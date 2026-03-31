@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "storage": "Lagringsstatistik - Frigate",
-    "general": "Allmän statistik - Frigate",
-    "cameras": "Kamerastatistik - Frigate",
+    "storage": "Lagringsstatistik - SecureVu",
+    "general": "Allmän statistik - SecureVu",
+    "cameras": "Kamerastatistik - SecureVu",
     "logs": {
-      "frigate": "Frigate-loggar - Frigate",
-      "go2rtc": "Go2RTC loggar - Frigate",
-      "nginx": "Nginx loggar - Frigate"
+      "frigate": "SecureVu-loggar - SecureVu",
+      "go2rtc": "Go2RTC loggar - SecureVu",
+      "nginx": "Nginx loggar - SecureVu"
     },
-    "enrichments": "Förbättringsstatistik - Frigate"
+    "enrichments": "Förbättringsstatistik - SecureVu"
   },
   "logs": {
     "copy": {
@@ -80,7 +80,7 @@
       "intelGpuWarning": {
         "title": "Intel GPU statistik varning",
         "message": "GPU statistik otillgänglig",
-        "description": "Detta är en känd bugg i Intels GPU-statistikrapporteringsverktyg (intel_gpu_top) där den slutar fungera och upprepade gånger returnerar en GPU-användning på 0 %, även i fall där hårdvaruacceleration och objektdetektering körs korrekt på (i)GPU:n. Detta är inte en Frigate-bugg. Du kan starta om värden för att tillfälligt åtgärda problemet och bekräfta att GPU:n fungerar korrekt. Detta påverkar inte prestandan."
+        "description": "Detta är en känd bugg i Intels GPU-statistikrapporteringsverktyg (intel_gpu_top) där den slutar fungera och upprepade gånger returnerar en GPU-användning på 0 %, även i fall där hårdvaruacceleration och objektdetektering körs korrekt på (i)GPU:n. Detta är inte en SecureVu-bugg. Du kan starta om värden för att tillfälligt åtgärda problemet och bekräfta att GPU:n fungerar korrekt. Detta påverkar inte prestandan."
       }
     },
     "otherProcesses": {
@@ -103,7 +103,7 @@
       "bandwidth": "Bandbredd",
       "unused": {
         "title": "Oanvänt",
-        "tips": "Det här värdet kanske inte korrekt representerar det lediga utrymmet tillgängligt för Frigate om du har andra filer lagrade på din hårddisk utöver Frigates inspelningar. Frigate spårar inte lagringsanvändning utanför sina egna inspelningar."
+        "tips": "Det här värdet kanske inte korrekt representerar det lediga utrymmet tillgängligt för SecureVu om du har andra filer lagrade på din hårddisk utöver SecureVus inspelningar. SecureVu spårar inte lagringsanvändning utanför sina egna inspelningar."
       },
       "title": "Kamera lagring",
       "camera": "Kamera",
@@ -113,7 +113,7 @@
     "overview": "Översikt",
     "recordings": {
       "title": "Inspelningar",
-      "tips": "Detta värde representerar den totala lagringsmängden som används av inspelningarna i Frigates databas. Frigate spårar inte lagringsanvändningen för alla filer på din disk.",
+      "tips": "Detta värde representerar den totala lagringsmängden som används av inspelningarna i SecureVus databas. SecureVu spårar inte lagringsanvändningen för alla filer på din disk.",
       "earliestRecording": "Tidigast tillgängliga inspelning:"
     },
     "shm": {

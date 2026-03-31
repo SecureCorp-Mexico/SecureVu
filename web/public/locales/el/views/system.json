@@ -1,13 +1,13 @@
 {
   "documentTitle": {
-    "cameras": "Στατιστικά Καμερών - Frigate",
-    "storage": "Στατιστικά αποθήκευσης - Frigate",
-    "general": "Γενικά στατιστικά - Frigate",
-    "enrichments": "Στατιστικά Εμπλουτισμού - Frigate",
+    "cameras": "Στατιστικά Καμερών - SecureVu",
+    "storage": "Στατιστικά αποθήκευσης - SecureVu",
+    "general": "Γενικά στατιστικά - SecureVu",
+    "enrichments": "Στατιστικά Εμπλουτισμού - SecureVu",
     "logs": {
-      "frigate": "Frigate αρχέιο καταγραφών - Frigate",
-      "go2rtc": "Αρχείο καταγραφής Go2RTC - Frigate",
-      "nginx": "Αρχείο καταγραφών Nginx - Frigate"
+      "frigate": "SecureVu αρχέιο καταγραφών - SecureVu",
+      "go2rtc": "Αρχείο καταγραφής Go2RTC - SecureVu",
+      "nginx": "Αρχείο καταγραφών Nginx - SecureVu"
     }
   },
   "title": "Σύστημα",

@@ -2,9 +2,9 @@
   "noRecordingsFoundForThisTime": "Hetkel ei leidu ühtegi salvestust",
   "noPreviewFound": "Eelvaadet ei leidu",
   "noPreviewFoundFor": "{{cameraName}} kaamera eelvaadet ei leidu",
-  "submitFrigatePlus": {
+  "submitSecureVuPlus": {
     "submit": "Saada",
-    "title": "Kas saadad selle kaadri Frigate+ teenusesse?"
+    "title": "Kas saadad selle kaadri SecureVu+ teenusesse?"
   },
   "cameraDisabled": "Kaamera on kasutuselt eemaldatud",
   "stats": {
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Kaadri saatmine Frigate+ teenusesse õnnestus"
+      "submittedSecureVuPlus": "Kaadri saatmine SecureVu+ teenusesse õnnestus"
     },
     "error": {
-      "submitFrigatePlusFailed": "Kaadri saatmine Frigate+ teenusesse ei õnnestunud"
+      "submitSecureVuPlusFailed": "Kaadri saatmine SecureVu+ teenusesse ei õnnestunud"
     }
   }
 }

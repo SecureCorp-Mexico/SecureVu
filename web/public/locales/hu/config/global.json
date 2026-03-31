@@ -35,10 +35,10 @@
     },
     "safe_mode": {
         "label": "Biztonságos mód",
-        "description": "Ha engedélyezve van, a Frigate programot biztonsági módban indítja el, csökkentett funkciókkal a hibaelhárítás érdekében."
+        "description": "Ha engedélyezve van, a SecureVu programot biztonsági módban indítja el, csökkentett funkciókkal a hibaelhárítás érdekében."
     },
     "environment_vars": {
         "label": "Környezeti változók",
-        "description": "A Home Assistant OS rendszerben a Frigate folyamat számára beállítandó környezeti változói. A nem HAOS-felhasználóknak helyette a Docker konfigurációját kell használniuk."
+        "description": "A Home Assistant OS rendszerben a SecureVu folyamat számára beállítandó környezeti változói. A nem HAOS-felhasználóknak helyette a Docker konfigurációját kell használniuk."
     }
 }

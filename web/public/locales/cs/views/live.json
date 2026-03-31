@@ -1,6 +1,6 @@
 {
-  "documentTitle": "Živě - Frigate",
-  "documentTitle.withCamera": "{{camera}}-Živě-Frigate",
+  "documentTitle": "Živě - SecureVu",
+  "documentTitle.withCamera": "{{camera}}-Živě-SecureVu",
   "lowBandwidthMode": "Režim nízké šířky pásma",
   "twoWayTalk": {
     "enable": "Povolit obousměrný hovor",

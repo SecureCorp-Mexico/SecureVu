@@ -1,17 +1,17 @@
 {
   "documentTitle": {
-    "default": "Indstillinger - Frigate",
-    "authentication": "Bruger Indstillinger - Frigate",
-    "camera": "Kamera indstillinger - Frigate",
-    "object": "Debug - Frigate",
-    "cameraManagement": "Administrér kameraer - Frigate",
-    "cameraReview": "Indstillinger for kameragennemgang - Frigate",
-    "enrichments": "Indstillinger for berigelser - Frigate",
-    "masksAndZones": "Maske- og zoneeditor - Frigate",
-    "motionTuner": "Bevægelsesjustering - Frigate",
-    "general": "Brugergrænsefladeindstillinger - Frigate",
-    "frigatePlus": "Frigate+ Indstillinger - Frigate",
-    "notifications": "Notifikations indstillinger - Frigate"
+    "default": "Indstillinger - SecureVu",
+    "authentication": "Bruger Indstillinger - SecureVu",
+    "camera": "Kamera indstillinger - SecureVu",
+    "object": "Debug - SecureVu",
+    "cameraManagement": "Administrér kameraer - SecureVu",
+    "cameraReview": "Indstillinger for kameragennemgang - SecureVu",
+    "enrichments": "Indstillinger for berigelser - SecureVu",
+    "masksAndZones": "Maske- og zoneeditor - SecureVu",
+    "motionTuner": "Bevægelsesjustering - SecureVu",
+    "general": "Brugergrænsefladeindstillinger - SecureVu",
+    "frigatePlus": "SecureVu+ Indstillinger - SecureVu",
+    "notifications": "Notifikations indstillinger - SecureVu"
   },
   "menu": {
     "ui": "Brugergrænseflade"

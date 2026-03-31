@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Kamera statisztikák - Frigate",
-    "storage": "Tárhely statisztikák - Frigate",
-    "general": "Általános Statisztikák - Frigate",
+    "cameras": "Kamera statisztikák - SecureVu",
+    "storage": "Tárhely statisztikák - SecureVu",
+    "general": "Általános Statisztikák - SecureVu",
     "logs": {
-      "frigate": "Frigate naplók - Frigate",
-      "go2rtc": "Go2RTC naplók - Frigate",
-      "nginx": "Nginx naplók - Frigate"
+      "frigate": "SecureVu naplók - SecureVu",
+      "go2rtc": "Go2RTC naplók - SecureVu",
+      "nginx": "Nginx naplók - SecureVu"
     },
-    "enrichments": "Kiegészítés statisztikák - Frigate"
+    "enrichments": "Kiegészítés statisztikák - SecureVu"
   },
   "cameras": {
     "label": {
@@ -139,7 +139,7 @@
   "storage": {
     "recordings": {
       "title": "Felvételek",
-      "tips": "Ez az érték mutatja a Frigate adatbázisában található felvételek teljes tárhely felhasználását. A Frigate nem követi az összes fájl által foglalt tárhelyet.",
+      "tips": "Ez az érték mutatja a SecureVu adatbázisában található felvételek teljes tárhely felhasználását. A SecureVu nem követi az összes fájl által foglalt tárhelyet.",
       "earliestRecording": "Legkorábbi elérhető felvétel:"
     },
     "title": "Tárhely",
@@ -153,7 +153,7 @@
       "bandwidth": "Sávszélesség",
       "unused": {
         "title": "Felhasználatlan",
-        "tips": "Ez az érték nem feltétlenül tükrözi pontosan a Frigate számára elérhető szabad helyet, ha a meghajtón egyéb fájlok is tárolva vannak a Frigate felvételein kívül. A Frigate nem követi a tárhelyhasználatot a saját felvételein kívül."
+        "tips": "Ez az érték nem feltétlenül tükrözi pontosan a SecureVu számára elérhető szabad helyet, ha a meghajtón egyéb fájlok is tárolva vannak a SecureVu felvételein kívül. A SecureVu nem követi a tárhelyhasználatot a saját felvételein kívül."
       }
     },
     "shm": {

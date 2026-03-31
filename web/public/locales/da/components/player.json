@@ -3,8 +3,8 @@
   "noPreviewFound": "Ingen forhåndsvisning fundet",
   "cameraDisabled": "Kamera er deaktiveret",
   "noPreviewFoundFor": "Ingen forhåndsvisning fundet for {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Indsend dette billede til Frigate+?",
+  "submitSecureVuPlus": {
+    "title": "Indsend dette billede til SecureVu+?",
     "submit": "Indsend"
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 eller nyere kræves for denne type livestream.",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Billede sendt til Frigate+"
+      "submittedSecureVuPlus": "Billede sendt til SecureVu+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Kunne ikke sende billede til Frigate+"
+      "submitSecureVuPlusFailed": "Kunne ikke sende billede til SecureVu+"
     }
   }
 }
