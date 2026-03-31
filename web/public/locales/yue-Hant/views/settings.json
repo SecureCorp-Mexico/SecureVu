@@ -1009,7 +1009,7 @@
         "customUrlRtspRequired": "自訂 URL 必須以「rtsp://」開頭。非 RTSP 串流需手動設定。"
       },
       "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
+        "reolink": "https://securecorp.com//configuration/camera_specific.html#reolink-cameras"
       },
       "connectionSettings": "連線設定",
       "detectionMethod": "串流偵測方式",

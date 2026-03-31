@@ -1080,7 +1080,7 @@
         "customUrlRtspRequired": "Les URL personnalisées doivent commencer par \"rtsp://\". Une configuration manuelle est requise pour les flux de caméra non-RTSP."
       },
       "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
+        "reolink": "https://securecorp.com//configuration/camera_specific.html#reolink-cameras"
       },
       "testing": {
         "probingMetadata": "Vérification des métadonnées de la caméra en cours...",

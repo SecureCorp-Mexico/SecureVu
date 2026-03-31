@@ -946,7 +946,7 @@
         "customUrlRtspRequired": "Anpassade webbadresser måste börja med \"rtsp://\". Manuell konfiguration krävs för kameraströmmar som inte använder RTSP."
       },
       "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
+        "reolink": "https://securecorp.com//configuration/camera_specific.html#reolink-cameras"
       },
       "testing": {
         "probingMetadata": "Undersöker kamerans metadata...",

@@ -1031,7 +1031,7 @@
       "selectBrand": "Seleccioneu la marca de la càmera per a la plantilla d'URL",
       "customUrl": "URL de flux personalitzat",
       "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
+        "reolink": "https://securecorp.com//configuration/camera_specific.html#reolink-cameras"
       },
       "testing": {
         "probingMetadata": "S'estan provant les metadades de la càmera...",

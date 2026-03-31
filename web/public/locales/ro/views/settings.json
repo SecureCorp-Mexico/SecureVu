@@ -1047,7 +1047,7 @@
         "customUrlRtspRequired": "URL-urile personalizate trebuie să înceapă cu „rtsp://”. Configurarea manuală este necesară pentru stream-urile care nu sunt RTSP."
       },
       "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
+        "reolink": "https://securecorp.com//configuration/camera_specific.html#reolink-cameras"
       },
       "testing": {
         "probingMetadata": "Sondare metadate cameră...",
